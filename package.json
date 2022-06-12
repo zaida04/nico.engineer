@@ -1,27 +1,38 @@
 {
-  "name": "nico.engineer",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "12.1.6",
-    "react": "18.1.0",
-    "react-dom": "18.1.0"
-  },
-  "devDependencies": {
-    "@types/node": "17.0.42",
-    "@types/react": "18.0.12",
-    "@types/react-dom": "18.0.5",
-    "autoprefixer": "^10.4.7",
-    "eslint": "8.17.0",
-    "eslint-config-next": "12.1.6",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.2",
-    "typescript": "4.7.3"
-  }
+    "name": "nico.engineer",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "prettier": "npx prettier --write **/*.{tsx,jsx,ts,js,json,yml,yaml,md}",
+        "prepare": "npx husky install"
+    },
+    "dependencies": {
+        "next": "12.1.6",
+        "node-fetch": "^3.2.6",
+        "react": "18.1.0",
+        "react-dom": "18.1.0"
+    },
+    "devDependencies": {
+        "@types/node": "17.0.42",
+        "@types/react": "18.0.12",
+        "@types/react-dom": "18.0.5",
+        "autoprefixer": "^10.4.7",
+        "eslint": "8.17.0",
+        "eslint-config-next": "12.1.6",
+        "husky": "7.0.4",
+        "postcss": "^8.4.14",
+        "prettier": "^2.6.2",
+        "tailwindcss": "^3.1.2",
+        "typescript": "4.7.3"
+    },
+    "prettier": {
+        "endOfLine": "auto",
+        "printWidth": 160,
+        "semi": true,
+        "tabWidth": 4
+    }
 }
