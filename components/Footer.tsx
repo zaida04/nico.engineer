@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <div className="text-center py-2">
+        <div className="text-center mx-auto py-2">
             © Nico 2022, inspired by{" "}
             <a href="https://xetera.dev/" className="text-pink-600 hover:underline">
                 Xetera&apos;s site
