@@ -106,7 +106,9 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding }) => {
                 </div>
                 <Image src="/my_face.png" width="450" height="450" alt="My face" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-semibold text-white py-8 pl-12 md:pl-20">Featured Projects:</h1>
+            <div className="w-full flex pb-10">
+                <h1 className="mx-auto text-4xl md:text-5xl font-semibold text-white py-8">Featured Projects</h1>
+            </div>
             <div className="flex pb-20">
                 <div className="px-8 md:mx-auto grid gap-12 md:grid-cols-2 lg:grid-cols-3 md:auto-cols-min auto-rows-min">
                     {FEATURED_PROJECTS.map((project) => (
@@ -114,7 +116,9 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding }) => {
                     ))}
                 </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-semibold text-white py-8 pl-12 md:pl-20">Articles:</h1>
+            <div className="w-full flex pb-10">
+                <h1 className="mx-auto text-4xl md:text-5xl font-semibold text-white py-8">Articles</h1>
+            </div>
             <div className="pl-14 md:pl-40 pb-40 md:grid md:grid-cols-7">
                 <div className="md:col-span-3">
                     {[
