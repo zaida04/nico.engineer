@@ -121,8 +121,8 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding }) => {
                         {
                             timePublished: "10 minutes ago",
                             readTime: "10 mins",
-                            title: "How reporting an XSS vulnerability got me suspended from school",
-                            shortDescription: "And how you can avoid having the same thing happening to you.",
+                            title: "Pretend this is an actual article",
+                            shortDescription: "Hello world.",
                         },
                         {
                             timePublished: "10 minutes ago",

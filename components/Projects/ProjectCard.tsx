@@ -17,8 +17,16 @@ export default function ProjectCard(props: ProjectCardProps) {
             <p className={`text-md ${props.descriptionColor ?? "text-black"}`}>{props.description}</p>
 
             <div className="flex space-x-4 pt-4">
-                {props.repoLink && <Github className="text-3xl hover:scale-110" />}
-                {props.url && <Link className="text-3xl pt-1 hover:scale-110" />}
+                {props.repoLink && (
+                    <a href={props.repoLink}>
+                        <Github className="text-3xl hover:scale-110" />
+                    </a>
+                )}
+                {props.url && (
+                    <a href={props.url}>
+                        <Link className="text-3xl pt-1 hover:scale-110" />
+                    </a>
+                )}
             </div>
         </div>
     );
