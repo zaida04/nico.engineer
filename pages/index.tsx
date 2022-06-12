@@ -8,6 +8,7 @@ import Github from "../components/Icons/Github";
 import Discord from "../components/Icons/Discord";
 import ProjectCard, { ProjectCardProps } from "../components/Projects/ProjectCard";
 import SmallCard from "../components/Post/SmallCard";
+import { ArticleData, getAllArticles } from "../lib/articles";
 
 const FEATURED_PROJECTS: ProjectCardProps[] = [
     {
@@ -36,11 +37,20 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
 export const getStaticProps: GetStaticProps = async (ctx) => {
     const animeCount = await getAnimeCount("nico03727").catch(() => 0);
     const timeCoding = await getTimeCoding().catch(() => "");
+    const articles = await getAllArticles();
+
+    articles.sort((a, b) => {
+        if (a.publishedAt > b.publishedAt) return 1;
+        if (a.publishedAt < b.publishedAt) return -1;
+
+        return 0;
+    });
 
     return {
         props: {
             animeCount,
             timeCoding,
+            articles: articles.reverse(),
         },
         revalidate: 1000,
     };
@@ -49,13 +59,14 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 type Props = {
     animeCount: number;
     timeCoding: string;
+    articles: ArticleData[];
 };
 
-const Home: NextPage<Props> = ({ animeCount, timeCoding }) => {
+const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
     return (
         <>
             <div className="h-full w-full md:flex items-center">
-                <div className="md:flex md:pl-40 md:pt-32 px-10 py-20">
+                <div className="md:flex md:pl-40 md:pt-18 px-10 py-20">
                     <div className="text-xl leading-loose text-gray-400 max-w-[45rem] space-y-6">
                         <h1 className="md:text-7xl text-3xl font-black text-white pb-4">Hello, I&apos;m Nico.</h1>
                         <p>
@@ -96,7 +107,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding }) => {
                         </p>
                         <div className="flex space-x-4">
                             <a href="https://github.com/zaida04" className="text-4xl">
-                                <Github />
+                                <Github fill="#FFFFFF" />
                             </a>
                             <a href="https://discord.com/users/500765481788112916/" className="text-4xl text-black">
                                 <Discord />
@@ -121,42 +132,11 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding }) => {
             </div>
             <div className="pl-14 md:pl-40 pb-40 md:grid md:grid-cols-7">
                 <div className="md:col-span-3">
-                    {[
-                        {
-                            timePublished: "10 minutes ago",
-                            readTime: "10 mins",
-                            title: "Pretend this is an actual article",
-                            shortDescription: "Hello world.",
-                        },
-                        {
-                            timePublished: "10 minutes ago",
-                            readTime: "10 mins",
-                            title: "Pretend this is an actual article",
-                            shortDescription: "Hello world.",
-                        },
-                        {
-                            timePublished: "10 minutes ago",
-                            readTime: "10 mins",
-                            title: "Pretend this is an actual article",
-                            shortDescription: "Hello world.",
-                        },
-                        {
-                            timePublished: "10 minutes ago",
-                            readTime: "10 mins",
-                            title: "Pretend this is an actual article",
-                            shortDescription: "Hello world.",
-                        },
-                        {
-                            timePublished: "10 minutes ago",
-                            readTime: "10 mins",
-                            title: "Pretend this is an actual article",
-                            shortDescription: "Hello world.",
-                        },
-                    ].map((post) => (
-                        <SmallCard key={post.title} {...post} />
+                    {articles.map((article) => (
+                        <SmallCard key={article.title} {...article} />
                     ))}
                 </div>
-                <div className="md:col-start-5 md:col-end-7 text-white">
+                <div className="md:col-start-5 md:col-end-7 pt-20 md:pt-0 text-white">
                     <h1 className="text-5xl font-semibold pb-4">Contact Me</h1>
                     <a href="mailto:contact@nico.engineer">
                         <p className="text-xl transition hover:scale-110 hover:text-yellow-200">Email: contact@nico.engineer</p>
