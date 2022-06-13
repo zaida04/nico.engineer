@@ -66,7 +66,7 @@ const BlogPage: NextPage<Props> = ({ metadata, source }) => {
                     <h3 className="mx-auto text-2xl text-gray-500 text-center max-w-[30em]">{metadata.frontmatter.description}</h3>
                 </div>
                 <div className="mx-auto w-full max-w-4xl text-white text-2xl py-8 px-4 flex">
-                    <div className="indent-8">
+                    <div>
                         <MDXRemote {...source} components={MDXComponents} />
                     </div>
                 </div>

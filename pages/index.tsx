@@ -66,7 +66,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
     return (
         <>
             <div className="h-full w-full md:flex items-center">
-                <div className="md:flex md:pl-40 md:pt-18 px-10 py-20">
+                <div className="md:flex md:pl-40 md:pt-14 px-10 py-20">
                     <div className="text-xl leading-loose text-gray-400 max-w-[45rem] space-y-6">
                         <h1 className="md:text-7xl text-3xl font-black text-white pb-4">Hello, I&apos;m Nico.</h1>
                         <p>
@@ -127,17 +127,17 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
                     ))}
                 </div>
             </div>
-            <div className="w-full flex py-20">
-                <h1 className="mx-auto text-4xl md:text-5xl font-semibold text-white">Articles</h1>
-            </div>
             <div className="pl-14 md:pl-40 pb-40 md:grid md:grid-cols-7">
+                <div className="col-span-full py-20">
+                    <h1 className="text-4xl md:text-5xl font-semibold text-white">Articles</h1>
+                </div>
                 <div className="md:col-span-3">
                     {articles.map((article) => (
                         <SmallCard key={article.title} {...article} />
                     ))}
                 </div>
                 <div className="md:col-start-5 md:col-end-7 pt-20 md:pt-0 text-white">
-                    <h1 className="text-5xl font-semibold pb-4">Contact Me</h1>
+                    <h1 className="text-6xl font-semibold pb-4">Contact Me</h1>
                     <a href="mailto:contact@nico.engineer">
                         <p className="text-xl transition hover:scale-110 hover:text-yellow-200">Email: contact@nico.engineer</p>
                     </a>
