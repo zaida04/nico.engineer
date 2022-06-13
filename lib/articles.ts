@@ -11,6 +11,12 @@ export interface ArticleData extends ArticleMetaData {
     readingTime: string;
 }
 
+export async function getAllSlugs() {
+    const dirs = await readdir(articlesPath, { withFileTypes: true });
+    const slugs = dirs.filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);
+    return slugs;
+}
+
 export async function getAllArticles() {
     const dirs = await readdir(articlesPath, { withFileTypes: true });
     const dirNames = dirs.filter((dirent) => dirent.isDirectory()).map((dirent) => dirent.name);
@@ -33,10 +39,9 @@ export async function getAllArticles() {
 }
 
 export async function getArticleFromSlug(slug: string) {
-    const articleDir = join(articlesPath, slug, `${slug}.mdx`);
+    const articleDir = join(articlesPath, slug, `index.mdx`);
     const source = await readFile(articleDir, "utf-8");
     const { content, data } = matter(source);
-
     return {
         content,
         frontmatter: {

@@ -22,7 +22,7 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         color: "bg-red-500 text-white",
         descriptionColor: "text-white",
         title: "Yoki",
-        description: "The first moderation bot on Guilded. Focusing on customizability, reliability, and being user-first. Used in over 100+ servers.",
+        description: "Previously on Discord, Yoki is the first moderation bot on Guilded. Focused on reliability and customizability.",
         url: "https://yoki.gg/support",
     },
     {
