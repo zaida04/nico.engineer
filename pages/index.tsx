@@ -9,6 +9,7 @@ import Discord from "../components/Icons/Discord";
 import ProjectCard, { ProjectCardProps } from "../components/Projects/ProjectCard";
 import SmallCard from "../components/Post/SmallCard";
 import { ArticleData, getAllArticles } from "../lib/articles";
+import Head from "next/head";
 
 const FEATURED_PROJECTS: ProjectCardProps[] = [
     {
@@ -65,6 +66,9 @@ type Props = {
 const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
     return (
         <>
+            <Head>
+                <title>Nico&apos;s site</title>
+            </Head>
             <div className="h-full w-full md:flex items-center">
                 <div className="md:flex md:pl-40 md:pt-14 px-10 py-20">
                     <div className="text-xl leading-loose text-gray-400 max-w-[45rem] space-y-6">
@@ -100,7 +104,8 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
                         </p>
                         <p>
                             I&apos;m the <JobTitle url="https://github.com/yoki-labs">founder of Yoki Labs</JobTitle>, and currently working as a{" "}
-                            <JobTitle url="https://discord.gg/ccx">Lead Content Moderator at Adobe</JobTitle>.
+                            <JobTitle url="https://discord.gg/ccx">Lead Content Moderator at Adobe</JobTitle>. On the side, I moderate the{" "}
+                            <JobTitle url="https://discord.gg/valorant">Valorant Discord Server</JobTitle>
                         </p>
                         <p>
                             I&apos;ve watched <Statistic>{animeCount}</Statistic> animes and spent <Statistic>{timeCoding}</Statistic> coding this year.
