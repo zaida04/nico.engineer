@@ -104,7 +104,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
                         </p>
                         <p>
                             I&apos;m the <JobTitle url="https://github.com/yoki-labs">founder of Yoki Labs</JobTitle>, and currently working as a{" "}
-                            <JobTitle url="https://discord.gg/ccx">Lead Content Moderator at Adobe</JobTitle>. On the side, I moderate the{" "}
+                            <JobTitle url="https://discord.gg/acc">Lead Content Moderator at Adobe</JobTitle>. On the side, I moderate the{" "}
                             <JobTitle url="https://discord.gg/valorant">Valorant Discord Server</JobTitle>
                         </p>
                         <p>
