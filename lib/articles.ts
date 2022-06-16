@@ -5,7 +5,7 @@ import readingTime from "reading-time";
 import { join } from "path";
 const articlesPath = join(process.cwd(), "blog");
 
-export type ArticleMetaData = { title: string; publishedAt: string; description: string };
+export type ArticleMetaData = { title: string; publishedAt: number; description: string };
 export interface ArticleData extends ArticleMetaData {
     slug: string;
     readingTime: string;
@@ -29,7 +29,7 @@ export async function getAllArticles() {
             {
                 ...data,
                 slug: currentDirectory,
-                readingTime: readingTime(articleFile).text,
+                readingTime: readingTime(articleFile, { wordsPerMinute: 150 }).text,
             },
             ...allArticles,
         ];

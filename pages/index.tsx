@@ -38,20 +38,12 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
 export const getStaticProps: GetStaticProps = async (ctx) => {
     const animeCount = await getAnimeCount("nico03727").catch(() => 0);
     const timeCoding = await getTimeCoding().catch(() => "");
-    const articles = await getAllArticles();
-
-    articles.sort((a, b) => {
-        if (a.publishedAt > b.publishedAt) return 1;
-        if (a.publishedAt < b.publishedAt) return -1;
-
-        return 0;
-    });
-
+    const articles = (await getAllArticles()).sort();
     return {
         props: {
             animeCount,
             timeCoding,
-            articles: articles.reverse(),
+            articles,
         },
         revalidate: 1000,
     };
