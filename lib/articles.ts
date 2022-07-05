@@ -27,9 +27,9 @@ export async function getAllArticles() {
 
         return [
             {
-                ...data,
                 slug: currentDirectory,
                 readingTime: readingTime(articleFile, { wordsPerMinute: 150 }).text,
+                ...data,
             },
             ...allArticles,
         ];
