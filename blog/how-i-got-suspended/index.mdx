@@ -9,16 +9,18 @@ description: "And why no good deed goes unpunished."
 In typical American high schools, you are assigned an email address on your school's domain and allocated an inbox using something like GSuite or Microsoft office.
 This same thing happened at my school, but we would use the in-house solution that I'll call XMail. The XMail interface was simple, a table with your emails and a button to send a new one. You get the idea.
 
+<XMailTable />
+
 The interesting part of this story came when I needed to send an email to one of my teachers. After hitting send, a banner appeared displaying the text "Email sent successfully". But something immediately caught my eye.
-The way this worked was by modifying the URL to include a query parameter containing the banner text, like this `https://schooldomain.org/XMail?message=Email%20sent%20successfully`. This leads right into what the problem was.
+The way this worked was by modifying the URL to include a query parameter containing the banner text, like this `https://school.org/XMail?message=sent%20successfully`. This leads right into what the problem was.
 
 # The vulnerability
 
 In the various places I had worked, I tinkered around with security and knew what the best practices were for building websites (Coming soon: how I sent my boss our entire user table w/ emails and hashed passwords without any database access). Which is why such a brazen display of injecting user input without serialization into a webpage made me curious right away. I immediately started tinkering around and found that by modifying this query parameter, you can put _anything_ you want in the banner, even HTML.
-Something like `https://schooldomain.org/XMail?message=<script>alert("hi!")</script>` will prompt an alert on the page of whoever opens the link. This is a glaring problem.
+Something like `https://school.org/XMail?message=<script>alert("hi!")</script>` will prompt an alert on the page of whoever opens the link. This is a glaring problem.
 Why? Because of something called a [Cross Site Scripting Attack (XSS)](https://owasp.org/www-community/attacks/xss/). The way this works is that an untrusted script is injected into an otherwise trusted site without the user's knowledge or consent.
 In this situation, it means an attacker can send someone a link to XMail with a specially crafted payload encoded, and when the user clicks the link they'll be directed to XMail, but without knowing it, malicious code is running on their browser. This is especially dangerous because of the way the school website worked, where _session IDs were not stored in an [HttpOnly cookie](https://owasp.org/www-community/HttpOnly)_, allowing an attacker access to a user's cookies using `document.cookie`.
-The attacker can then make a HTTP request to a remote server and send that cookie over, using an example payload like this: ![Example of XSS](/imgs/xss-example.png)  
+The attacker can then make a HTTP request to a remote server and send that cookie over, using an example payload encoded into the URL like this: ![Example of XSS](/imgs/xss-example.png)  
 With this session ID in hand, the attacker can then authenticate themselves as the user without them knowing. To them, they just clicked on a link that took them to their email, but to an attacker, they now have full access to their account. This meant someone could target a student, a teacher, or even a principal. Everyone was at risk.
 This had the potential of costing the school district tens of thousands of dollars.
 
