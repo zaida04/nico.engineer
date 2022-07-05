@@ -56,10 +56,21 @@ type Props = {
 };
 
 const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
+    const ogDescription =
+        "I'm a passionate full-stack developer who loves building applications used by millions around the world using Node.js, JavaScript, TypeScript, and Python. I'm currently really interested in learning lower-level languages such as Rust and Elixir.";
+
     return (
         <>
             <Head>
                 <title>Nico&apos;s site</title>
+                <meta name="description" content={ogDescription} />
+                <meta property="og:title" content="Nico's site" />
+                <meta property="og:site_name" content="nico.engineer" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://nico.engineer/" />
+                <meta property="og:image" content="https://nico.engineer/my_face.png" />
+                <meta property="og:description" content={ogDescription} />
+                <meta name="theme-color" content="#0f1117" />
             </Head>
             <div className="h-full w-full md:flex items-center">
                 <div className="md:flex md:pl-40 md:pt-14 px-10 py-20">
