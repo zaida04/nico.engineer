@@ -17,14 +17,14 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         title: "Guilded.js",
         description: "Tools for creating bots with the guilded.gg bot API. Usable in either JavaScript or TypeScript projects",
         repoLink: "https://github.com/guildedjs/guilded.js",
-        url: "https://guilded.js.org",
+        url: "https://guilded.js.org/",
     },
     {
         color: "bg-red-500 text-white",
         descriptionColor: "text-white",
         title: "Yoki",
         description: "Previously on Discord, Yoki is the first moderation bot on Guilded. Focused on reliability and customizability.",
-        url: "https://yoki.gg/support",
+        url: "https://yoki.gg/",
     },
     {
         color: "bg-blue-600",
