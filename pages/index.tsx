@@ -10,6 +10,7 @@ import ProjectCard, { ProjectCardProps } from "../components/Projects/ProjectCar
 import SmallCard from "../components/Post/SmallCard";
 import { ArticleData, getAllArticles } from "../lib/articles";
 import Head from "next/head";
+import HoverableLink from "../components/HoverableLink";
 
 const FEATURED_PROJECTS: ProjectCardProps[] = [
     {
@@ -79,36 +80,51 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
                         <h1 className="md:text-7xl text-3xl font-black text-white pb-4">Hello, I&apos;m Nico.</h1>
                         <p>
                             I&apos;m a passionate full-stack developer who loves building applications used by millions around the world using{" "}
-                            <a className="text-green-600 hover:underline font-semibold" href="https://nodejs.org/en/">
-                                Node.js
-                            </a>
-                            ,{" "}
-                            <a className="text-yellow-300 hover:underline font-semibold" href="https://www.javascript.com/">
-                                JavaScript
-                            </a>
-                            ,{" "}
-                            <a className="text-blue-700 hover:underline font-semibold" href="https://www.typescriptlang.org/">
-                                TypeScript
-                            </a>
+                            {[
+                                { color: "text-green-600", url: "https://nodejs.org/en/", text: "Node.js" },
+                                { color: "text-yellow-300", url: "https://www.javascript.com/", text: "JavaScript" },
+                                { color: "text-blue-700", url: "https://www.typescriptlang.org/", text: "TypeScript" },
+                            ].map((data, i) => (
+                                <>
+                                    {i !== 0 ? ", " : ""}
+                                    <HoverableLink key={data.text} {...data}>
+                                        {data.text}
+                                    </HoverableLink>
+                                </>
+                            ))}
                             , and{" "}
-                            <a className="hover:underline font-semibold" href="https://www.python.org/">
+                            <HoverableLink color={null} url="https://www.python.org/">
+                                {" "}
                                 <span className="text-[#306998]">Pyt</span>
                                 <span className="text-[#FFE873]">hon</span>
-                            </a>
+                            </HoverableLink>
+                            .
                         </p>
                         <p>
                             I&apos;m currently really interested in learning lower-level languages such as{" "}
-                            <a className="text-red-600 hover:underline font-semibold" href="https://www.rust-lang.org/">
+                            <HoverableLink color="text-red-600" url="https://www.rust-lang.org/">
                                 Rust
-                            </a>{" "}
+                            </HoverableLink>{" "}
                             and scalable languages like{" "}
-                            <a className="text-purple-700 hover:underline font-semibold" href="https://elixir-lang.org/">
+                            <HoverableLink color="text-purple-700" url="https://elixir-lang.org/">
                                 Elixir
-                            </a>
+                            </HoverableLink>
+                            .
                         </p>
                         <p>
-                            I&apos;m the <JobTitle url="https://github.com/yoki-labs">founder of Yoki Labs</JobTitle>, and currently working as a{" "}
-                            <JobTitle url="https://discord.gg/acc">Lead Content Moderator at Adobe</JobTitle>.
+                            I&apos;m the founder of{" "}
+                            <HoverableLink color="text-[#F5C400]" url="https://github.com/yoki-labs">
+                                Yoki Labs
+                            </HoverableLink>{" "}
+                            and a Software Engineer at{" "}
+                            <HoverableLink color="text-[#14ac3d]" url="https://library.fiveable.me">
+                                Fiveable
+                            </HoverableLink>
+                            . On the side, I am a Lead Content Moderator for{" "}
+                            <HoverableLink color="text-[#ED2224]" url="https://discord.gg/acc">
+                                Adobe
+                            </HoverableLink>
+                            .
                         </p>
                         <p>
                             I&apos;ve watched <Statistic>{animeCount}</Statistic> animes and spent <Statistic>{timeCoding}</Statistic> coding this year.
