@@ -69,7 +69,7 @@ const BlogPage: NextPage<Props> = ({ metadata, source }) => {
             </Head>
             <div className="pt-20">
                 <div className="pb-20">
-                    <h1 className="mx-auto text-6xl text-white text-center font-bold max-w-[15em] pb-4">{metadata.frontmatter.title}</h1>
+                    <h1 className="mx-auto text-[4rem] text-white text-center font-bold max-w-[15em] pb-4">{metadata.frontmatter.title}</h1>
                     <h3 className="mx-auto text-2xl text-gray-500 text-center max-w-[30em]">{metadata.frontmatter.description}</h3>
                 </div>
                 <div className="mx-auto w-full text-2xl max-w-4xl text-white py-8 px-4">
