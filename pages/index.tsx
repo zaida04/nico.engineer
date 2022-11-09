@@ -117,7 +117,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
                                 Yoki Labs
                             </HoverableLink>{" "}
                             and a Software Engineer at{" "}
-                            <HoverableLink color="text-[#14ac3d]" url="https://library.fiveable.me">
+                            <HoverableLink color="text-[#14ac3d]" url="https://fiveable.me">
                                 Fiveable
                             </HoverableLink>
                             . On the side, I am a Lead Content Moderator for{" "}
