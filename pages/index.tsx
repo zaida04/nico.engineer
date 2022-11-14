@@ -77,7 +77,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
             <div className="h-full w-full md:flex items-center">
                 <div className="md:flex md:pl-40 md:pt-14 px-10 py-20">
                     <div className="text-xl leading-loose text-gray-400 max-w-[45rem] space-y-6">
-                        <h1 className="md:text-7xl text-3xl font-black text-white pb-4">Hello, I&apos;m Nico.</h1>
+                        <h1 className="md:text-7xl text-3xl font-black text-white pb-4">Hello, I&apos;m Zaid.</h1>
                         <p>
                             I&apos;m a passionate full-stack developer who loves building applications used by millions around the world using{" "}
                             {[
