@@ -122,7 +122,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
                             </HoverableLink>
                             . On the side, I am a Lead Content Moderator for{" "}
                             <HoverableLink color="text-[#ED2224]" url="https://discord.gg/acc">
-                                Adobe
+                                Adobe Creative Career
                             </HoverableLink>
                             .
                         </p>
