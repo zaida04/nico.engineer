@@ -115,12 +115,8 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
                             I&apos;m the founder of{" "}
                             <HoverableLink color="text-[#F5C400]" url="https://github.com/yoki-labs">
                                 Yoki Labs
-                            </HoverableLink>{" "}
-                            and a Software Engineer at{" "}
-                            <HoverableLink color="text-[#14ac3d]" url="https://fiveable.me">
-                                Fiveable
-                            </HoverableLink>
-                            . On the side, I am a Lead Content Moderator for{" "}
+                            </HoverableLink>.{" "}
+                            On the side, I am a Community Manager for{" "}
                             <HoverableLink color="text-[#ED2224]" url="https://discord.gg/acc">
                                 Adobe Creative Career
                             </HoverableLink>
