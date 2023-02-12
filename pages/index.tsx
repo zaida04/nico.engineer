@@ -1,5 +1,4 @@
 import type { GetStaticProps, NextPage } from "next";
-import JobTitle from "../components/JobTitle";
 import Image from "next/image";
 import { getAnimeCount } from "../lib/anilist";
 import { getTimeCoding } from "../lib/wakatime";
@@ -11,41 +10,61 @@ import SmallCard from "../components/Post/SmallCard";
 import { ArticleData, getAllArticles } from "../lib/articles";
 import Head from "next/head";
 import HoverableLink from "../components/HoverableLink";
+import { githubFetch, IFetchRepo } from "../lib/github";
 
 const FEATURED_PROJECTS: ProjectCardProps[] = [
     {
-        color: "bg-yellow-400",
         title: "Guilded.js",
         description: "Tools for creating bots with the guilded.gg bot API. Usable in either JavaScript or TypeScript projects",
-        repoLink: "https://github.com/guildedjs/guilded.js",
+        repoName: "guilded.js",
+        ownerName: "guildedjs",
         url: "https://guilded.js.org/",
     },
     {
-        color: "bg-red-500 text-white",
-        descriptionColor: "text-white",
         title: "Yoki",
         description: "Previously on Discord, Yoki is the first moderation bot on Guilded. Focused on reliability and customizability.",
+        statistic: "1300+ servers",
         repoLink: "https://github.com/yoki-labs",
         url: "https://yoki.gg/",
     },
     {
-        color: "bg-blue-600",
-        title: "Dark Matter Docs",
-        description: "Community documentation for SkySkan's Dark Matter software. Compilation of knowledge from various community members",
-        repoLink: "https://github.com/zaida04/digitalsky-dark-matter-documentation",
-        url: "https://zaida04.gitbook.io/darkmatter/",
+        title: "config-convert",
+        repoName: "config-convert",
+        ownerName: "zaida04",
     },
+    {
+        title: "Guilded Shields",
+        repoName: "guilded-shields",
+        ownerName: "yoki-labs"
+    },
+    {
+        title: "GEvents Proxy",
+        repoName: "events-proxy",
+        ownerName: "yoki-labs"
+    }
 ];
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     const animeCount = await getAnimeCount("nico03727").catch(() => 0);
     const timeCoding = await getTimeCoding().catch(() => "");
     const articles = (await getAllArticles()).sort();
+
+    const stars = (await Promise.allSettled(FEATURED_PROJECTS
+        .filter(x => x.repoName)
+        .map(async project => {
+            const req = await githubFetch<IFetchRepo>(`/repos/${project.ownerName}/${project.repoName}`);
+            return req;
+        })
+    ))
+        .filter(x => x.status === "fulfilled")
+        .map(x => (x as PromiseFulfilledResult<IFetchRepo>).value);
+
     return {
         props: {
             animeCount,
             timeCoding,
             articles,
+            stars,
         },
         revalidate: 1000,
     };
@@ -54,10 +73,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 type Props = {
     animeCount: number;
     timeCoding: string;
+    stars: IFetchRepo[];
     articles: ArticleData[];
 };
 
-const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
+const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
     const ogDescription =
         "I'm a passionate full-stack developer who loves building applications used by millions around the world using Node.js, JavaScript, TypeScript, and Python. I'm currently really interested in learning lower-level languages such as Rust and Elixir.";
 
@@ -75,7 +95,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
                 <meta name="theme-color" content="#0f1117" />
             </Head>
             <div className="h-full w-full md:flex items-center">
-                <div className="md:flex md:pl-40 md:pt-14 px-10 py-20">
+                <div className="md:flex md:pl-40 md:pt-14">
                     <div className="text-xl leading-loose text-gray-400 max-w-[45rem] space-y-6">
                         <h1 className="md:text-7xl text-3xl font-black text-white pb-4">Hello, I&apos;m Zaid.</h1>
                         <p>
@@ -141,9 +161,9 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
                 <h1 className="mx-auto text-4xl md:text-5xl font-semibold text-white">Featured Projects</h1>
             </div>
             <div className="flex pb-20">
-                <div className="px-8 md:mx-auto grid gap-12 md:grid-cols-2 lg:grid-cols-3 md:auto-cols-min auto-rows-min">
+                <div className="px-8 md:mx-auto grid gap-12 lg:grid-cols-2">
                     {FEATURED_PROJECTS.map((project) => (
-                        <ProjectCard key={project.title} {...project} />
+                        <ProjectCard key={project.title} repoData={stars.find(x => x.name === project.repoName)} {...project} />
                     ))}
                 </div>
             </div>
