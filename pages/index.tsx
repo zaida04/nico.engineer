@@ -140,7 +140,11 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                             <HoverableLink color="text-[#ED2224]" url="https://discord.gg/acc">
                                 Adobe Creative Career
                             </HoverableLink>
-                            .
+                            . Prev </HoverableLink>{" "}
+                            Software Engineer at{" "}
+                            <HoverableLink color="text-[#14ac3d]" url="https://fiveable.me">
+                                Fiveable
+                            </HoverableLink>
                         </p>
                         <p>
                             I&apos;ve watched <Statistic>{animeCount}</Statistic> animes and spent <Statistic>{timeCoding}</Statistic> coding this year.
