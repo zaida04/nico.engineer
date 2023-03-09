@@ -4,7 +4,7 @@ import XMailTable from "./Tables/XMailTable";
 
 const MDXComponents = {
     h1: (props: { children: any }) => (
-        <h1 className="text-5xl font-bold font-rubik pb-8 md:pb-4" {...props}>
+        <h1 className="text-5xl font-bold font-rubik pb-8 md:pb-4 text-center md:text-left" {...props}>
             {props.children}
         </h1>
     ),
@@ -16,7 +16,7 @@ const MDXComponents = {
         );
     },
     p: (props: { children: any }) => {
-        return <p className="pb-8 indent-8 text-center md:text-left">{props.children}</p>;
+        return <p className="pb-8 indent-8 text-left">{props.children}</p>;
     },
     code: (props: { children: any }) => {
         return <code className="text-red-600">{props.children}</code>;
