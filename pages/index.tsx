@@ -100,7 +100,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                 <meta name="theme-color" content="#0f1117" />
             </Head>
             <div className="h-full w-full md:flex items-center">
-                <div className="md:flex md:pl-40 md:pt-14">
+                <div className="md:flex md:pl-40 pl-4 md:pt-14">
                     <div className="text-xl leading-loose text-gray-400 max-w-[45rem] space-y-6">
                         <h1 className="md:text-7xl text-3xl font-black text-white pb-4">Hello, I&apos;m Zaid.</h1>
                         <p>
