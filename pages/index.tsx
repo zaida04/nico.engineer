@@ -185,7 +185,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                     ))}
                 </div>
                 <div className="md:col-start-5 md:col-end-7 pt-20 md:pt-0 text-white">
-                    <h1 className="text-6xl font-semibold pb-4">Contact Me</h1>
+                    <h1 className="text-6xl md:text-5xl font-semibold pb-4">Contact Me</h1>
                     <a href="mailto:contact@nico.engineer">
                         <p className="text-xl transition hover:scale-110 hover:text-yellow-200">Email: contact@nico.engineer</p>
                     </a>
