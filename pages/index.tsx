@@ -33,14 +33,19 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         ownerName: "zaida04",
     },
     {
-        title: "Guilded Shields",
-        repoName: "guilded-shields",
-        ownerName: "yoki-labs"
+        title: "tomlenv",
+        repoName: "tomlenv",
+        ownerName: "zaida04"
     },
     {
-        title: "GEvents Proxy",
-        repoName: "events-proxy",
-        ownerName: "yoki-labs"
+        title: "rent-a-ni.co",
+        repoName: "rent-a-ni.co",
+        ownerName: "zaida04"
+    },
+    {
+        title: "anonymous",
+        repoName: "anonymous-posting-bot",
+        ownerName: "zaida04"
     }
 ];
 

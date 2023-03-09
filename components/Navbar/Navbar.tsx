@@ -11,7 +11,7 @@ export default function Navbar() {
                         <Image src="/my_face.png" width="75" height="75" className="hover:cursor-pointer" alt="my face" />
                     </Link>
                 </div>
-                <div className="w-full md:block md:w-auto" id="mobile-menu">
+                <div className="w-full md:block md:w-auto sm:hidden" id="mobile-menu">
                     <ul className="mt-4 items-center flex flex-col md:mt-0 md:flex-row md:space-x-4 md:pr-16">
                         <NavbarItem text="View On GitHub" dest="https://github.com/zaida04/nico.engineer" />
                     </ul>
