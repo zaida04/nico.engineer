@@ -43,16 +43,16 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         ownerName: "zaida04"
     },
     {
-        title: "anonymous",
+        title: "anon-bot",
         repoName: "anonymous-posting-bot",
         ownerName: "zaida04"
     }
 ];
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const animeCount = await getAnimeCount("nico03727").catch(() => 0);
-    const timeCoding = await getTimeCoding().catch(() => "");
-    const articles = (await getAllArticles()).sort();
+    const animeCount = await getAnimeCount("nico03727").catch(() => 0) ?? 0;
+    const timeCoding = await getTimeCoding().catch(() => "") ?? "";
+    const articles = await getAllArticles().catch(() => []) ?? [];
 
     const stars = (await Promise.allSettled(FEATURED_PROJECTS
         .filter(x => x.repoName)
@@ -100,7 +100,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                 <meta name="theme-color" content="#0f1117" />
             </Head>
             <div className="h-full w-full md:flex items-center">
-                <div className="md:flex md:pl-40 pl-4 md:pt-14">
+                <div className="md:flex md:pl-28 pl-4 md:pt-14">
                     <div className="text-xl leading-loose text-gray-400 max-w-[45rem] space-y-6">
                         <h1 className="md:text-7xl text-3xl font-black text-white pb-4">Hello, I&apos;m Zaid.</h1>
                         <p>
@@ -168,19 +168,19 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
             <div className="w-full flex py-20">
                 <h1 className="mx-auto text-4xl md:text-5xl font-semibold text-white">Featured Projects</h1>
             </div>
-            <div className="flex pb-20">
+            <div className="flex pb-16">
                 <div className="px-8 md:mx-auto grid gap-12 lg:grid-cols-2">
                     {FEATURED_PROJECTS.map((project) => (
                         <ProjectCard key={project.title} repoData={stars.find(x => x.name === project.repoName)} {...project} />
                     ))}
                 </div>
             </div>
-            <div className="pl-14 md:pl-40 pb-40 md:grid md:grid-cols-7">
-                <div className="col-span-full py-20">
+            <div className="pl-14 md:pl-36 pb-40 md:grid md:grid-cols-7">
+                <div className="col-span-full py-16">
                     <h1 className="text-4xl md:text-5xl font-semibold text-white">Articles</h1>
                 </div>
                 <div className="md:col-span-3">
-                    {articles.map((article) => (
+                    {articles.sort((a, b) => b.publishedAt - a.publishedAt).map((article) => (
                         <SmallCard key={article.title} {...article} />
                     ))}
                 </div>

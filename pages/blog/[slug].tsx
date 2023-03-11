@@ -66,6 +66,7 @@ const BlogPage: NextPage<Props> = ({ metadata, source }) => {
                 <meta property="og:image" content="https://nico.engineer/my_face.png" />
                 <meta property="og:description" content={metadata.frontmatter.description} />
                 <meta name="theme-color" content="#0f1117" />
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css" />
             </Head>
             <div className="pt-20">
                 <div className="pb-20">
