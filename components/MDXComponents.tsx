@@ -20,16 +20,14 @@ const MDXComponents = {
         );
     },
     p: (props: { children: any }) => {
-        return <p className="pb-8 indent-8 text-left w-full">{props.children}</p>;
+        return <p className="pt-4 pb-8 indent-8 text-left w-full">{props.children}</p>;
     },
     code: (props: { children: any }) => {
         return <code className="text-red-600">{props.children}</code>;
     },
     pre: (props: { children: any }) => {
-        return <div className="flex justify-center">
-            <div className="w-full pre-wrap">
-                <pre className="text-xl bg-slate-800 p-4 mb-4">{props.children}</pre>
-            </div>
+        return <div className="overflow-x-scroll md:overflow-x-auto bg-slate-800">
+            <pre className="text-xl p-4 mb-4 whitespace-pre-wrap">{props.children}</pre>
         </div>
     },
     blockquote: (props: { children: any }) => {

@@ -44,23 +44,15 @@ This code exports a Group class that extends the Base class.
 
 The Group class has two methods:
 
-addMember: This method takes a memberId parameter 
-and returns a Promise that adds the member with the given memberId 
+* addMember: This method takes a memberId parameter and returns a Promise that adds the member with the given memberId 
 to the group associated with the current instance of the Group class. 
-It achieves this by calling the addMember method on the 
-client object's groups property, passing in the group's id 
-and the memberId parameters.
+It achieves this by calling the addMember method on the client object's groups property, passing in the group's id and the memberId parameters.
 
-removeMember: This method takes a memberId parameter and 
-returns a Promise that removes the member with the given memberId
+* removeMember: This method takes a memberId parameter and returns a Promise that removes the member with the given memberId
 from the group associated with the current instance of the Group class. 
-It achieves this by calling the removeMember method on the 
-client object's groups property, passing in the group's id 
-and the memberId parameters.
+It achieves this by calling the removeMember method on the client object's groups property, passing in the group's id and the memberId parameters.
 
-Overall, this code appears to be a module for managing group memberships
-in a larger application. It uses promises to handle 
-asynchronous operations, making it well-suited for 
+Overall, this code appears to be a module for managing group memberships in a larger application. It uses promises to handle asynchronous operations, making it well-suited for 
 use in an asynchronous environment.
 ```
   
@@ -86,8 +78,7 @@ export class Group extends Base {
   /**
    * Adds a member to the group.
    * @param {string} memberId - The id of the member to add.
-   * @returns {Promise<void>} A Promise that resolves when the member 
-   is added successfully.
+   * @returns {Promise<void>} A Promise that resolves when the member is added successfully.
    */
   addMember(memberId) {
     return this.client.groups.addMember(this.id, memberId);
@@ -96,8 +87,7 @@ export class Group extends Base {
   /**
    * Removes a member from the group.
    * @param {string} memberId - The id of the member to remove.
-   * @returns {Promise<void>} A Promise that resolves when the member 
-   is removed successfully.
+   * @returns {Promise<void>} A Promise that resolves when the member is removed successfully.
    */
   removeMember(memberId) {
     return this.client.groups.removeMember(this.id, memberId);
