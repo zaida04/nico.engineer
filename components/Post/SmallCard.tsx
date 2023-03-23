@@ -3,7 +3,7 @@ import { DateTime } from "luxon";
 export default function SmallCard(props: { slug: string; publishedAt: number; readingTime: string; title: string; description: string }) {
     return (
         <a href={`/blog/${props.slug}`}>
-            <div className="max-w-[45rem] pb-10 transition hover:scale-110">
+            <div className="max-w-[45rem] pb-10 transition-opacity hover:opacity-60">
                 <div className="flex text-gray-500">
                     <p>{DateTime.fromMillis(props.publishedAt).toRelative()}</p>
                     <p className="px-2">•</p>

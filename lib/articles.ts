@@ -5,7 +5,7 @@ import readingTime from "reading-time";
 import { join } from "path";
 const articlesPath = join(process.cwd(), "blog");
 
-export type ArticleMetaData = { title: string; publishedAt: number; description: string };
+export type ArticleMetaData = { title: string; publishedAt: number; description: string; tags: string[] };
 export interface ArticleData extends ArticleMetaData {
     slug: string;
     readingTime: string;

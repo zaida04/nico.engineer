@@ -11,6 +11,7 @@ import { ArticleData, getAllArticles } from "../lib/articles";
 import Head from "next/head";
 import HoverableLink from "../components/HoverableLink";
 import { githubFetch, IFetchRepo } from "../lib/github";
+import Email from "../components/Icons/Email";
 
 const FEATURED_PROJECTS: ProjectCardProps[] = [
     {
@@ -85,6 +86,7 @@ type Props = {
 const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
     const ogDescription =
         "I'm a passionate full-stack developer who loves building applications used by millions around the world using Node.js, JavaScript, TypeScript, and Python. I'm currently really interested in learning lower-level languages such as Rust and Elixir.";
+    console.log(articles);
 
     return (
         <>
@@ -101,7 +103,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
             </Head>
             <div className="h-full w-full md:flex items-center">
                 <div className="md:flex md:pl-28 pl-4 md:pt-14">
-                    <div className="text-xl leading-loose text-gray-400 max-w-[45rem] space-y-6">
+                    <div className="text-xl leading-loose text-gray-400 max-w-[50rem] space-y-6">
                         <h1 className="md:text-7xl text-3xl font-black text-white pb-4">Hello, I&apos;m Zaid.</h1>
                         <p>
                             I&apos;m a passionate full-stack developer who loves building applications used by millions around the world using{" "}
@@ -154,16 +156,19 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                             I&apos;ve watched <Statistic>{animeCount}</Statistic> animes and spent <Statistic>{timeCoding}</Statistic> coding this year.
                         </p>
                         <div className="flex space-x-4">
-                            <a href="https://github.com/zaida04" className="text-4xl">
+                            <a href="https://github.com/zaida04" className="text-4xl hover:opacity-50 transition-opacity">
                                 <Github fill="#FFFFFF" />
                             </a>
-                            <a href="https://discord.com/users/500765481788112916/" className="text-4xl text-black">
+                            <a href="https://discord.com/users/500765481788112916/" className="text-4xl text-black hover:opacity-50 transition-opacity">
                                 <Discord />
+                            </a>
+                            <a href="mailto:contact@nico.engineer" className="hover:opacity-50 transition-opacity">
+                                <Email />
                             </a>
                         </div>
                     </div>
                 </div>
-                <Image src="/my_face.png" width="450" height="450" alt="My face" />
+                {/* <Image src="/my_face.png" width="450" height="450" alt="My face" /> */}
             </div>
             <div className="w-full flex py-20">
                 <h1 className="mx-auto text-4xl md:text-5xl font-semibold text-white">Featured Projects</h1>
@@ -180,11 +185,16 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                     <h1 className="text-4xl md:text-5xl font-semibold text-white">Articles</h1>
                 </div>
                 <div className="md:col-span-3">
-                    {articles.sort((a, b) => b.publishedAt - a.publishedAt).map((article) => (
+                    {articles.filter(x => !x.tags?.includes("islam")).sort((a, b) => b.publishedAt - a.publishedAt).map((article) => (
                         <SmallCard key={article.title} {...article} />
                     ))}
                 </div>
                 <div className="md:col-start-5 md:col-end-7 pt-20 md:pt-0 text-white">
+                    {articles.filter(x => x.tags?.includes("islam")).sort((a, b) => b.publishedAt - a.publishedAt).map((article) => (
+                        <SmallCard key={article.title} {...article} />
+                    ))}
+                </div>
+                {/* <div className="md:col-start-5 md:col-end-7 pt-20 md:pt-0 text-white">
                     <h1 className="text-6xl md:text-5xl font-semibold pb-4">Contact Me</h1>
                     <a href="mailto:contact@nico.engineer">
                         <p className="text-xl transition hover:scale-110 hover:text-yellow-200">Email: contact@nico.engineer</p>
@@ -192,7 +202,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                     <a href="https://discord.com/users/500765481788112916/">
                         <p className="text-xl transition hover:scale-110 hover:text-[#5865F2]">Discord: n1co#3727</p>
                     </a>
-                </div>
+                </div> */}
             </div>
         </>
     );
