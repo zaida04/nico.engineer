@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IFetchRepo } from "../../lib/github";
 import Github from "../Icons/Github";
 import Link from "../Icons/Link";
+import { Tags } from "../Tags";
 
 export interface ProjectCardProps {
     title: string;
@@ -10,12 +11,14 @@ export interface ProjectCardProps {
     repoLink?: string;
     repoName?: string;
     ownerName?: string;
+    tags?: string[];
     statistic?: string;
     repoData?: IFetchRepo;
     url?: string;
 }
 
 export default function ProjectCard(props: ProjectCardProps) {
+
     return (
         <div className={`flex flex-col justify-between rounded-xl border-[1px] border-slate-800 text-white w-[25em] px-8 pt-8 pb-2`}>
             <h1 className="text-4xl font-semibold pb-1">{props.title}</h1>
@@ -28,6 +31,10 @@ export default function ProjectCard(props: ProjectCardProps) {
             }
 
             <p className="text-md">{props.description ?? props.repoData?.description}</p>
+
+            {props.tags && <div>
+                <Tags tags={props.tags} />
+            </div>}
 
             <div className="flex space-x-4 pt-2 pb-4">
                 {(props.repoLink || props.repoName) && (

@@ -19,6 +19,7 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         description: "Tools for creating bots with the guilded.gg bot API. Usable in either JavaScript or TypeScript projects",
         repoName: "guilded.js",
         ownerName: "guildedjs",
+        tags: ["library", "api", "typescript", "monorepo"],
         url: "https://guilded.js.org/",
     },
     {
@@ -26,26 +27,31 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         description: "Previously on Discord, Yoki is the first moderation bot on Guilded. Focused on reliability and customizability.",
         statistic: "1300+ servers",
         repoLink: "https://github.com/yoki-labs",
+        tags: ["bot", "microservice", "automod", "ai"],
         url: "https://yoki.gg/",
     },
     {
         title: "config-convert",
         repoName: "config-convert",
+        tags: ["converter", "json", "cli"],
         ownerName: "zaida04",
     },
     {
         title: "tomlenv",
         repoName: "tomlenv",
+        tags: ["toml", "cli", "env", "cf-workers"],
         ownerName: "zaida04"
     },
     {
         title: "rent-a-ni.co",
         repoName: "rent-a-ni.co",
+        tags: ["api", "link-shortener", "fastify"],
         ownerName: "zaida04"
     },
     {
         title: "anon-bot",
         repoName: "anonymous-posting-bot",
+        tags: ["discord", "bot"],
         ownerName: "zaida04"
     }
 ];

@@ -3,6 +3,7 @@ export const githubFetch = <T>(path: string) =>
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": process.env.GITHUB_KEY ? `token ${process.env.GITHUB_KEY}` : ""
     }
   })
     .then((x) => x.json())
@@ -14,5 +15,6 @@ export interface IFetchRepo {
   private: boolean;
   description: string;
   stargazers_count: number;
+  topics: string[];
   language: string;
 }
