@@ -17,7 +17,7 @@ export interface ProjectCardProps {
 
 export default function ProjectCard(props: ProjectCardProps) {
     return (
-        <div className={`rounded-xl border-[1px] border-slate-800 text-white w-[25em] px-8 pt-8 pb-2`}>
+        <div className={`flex flex-col justify-between rounded-xl border-[1px] border-slate-800 text-white w-[25em] px-8 pt-8 pb-2`}>
             <h1 className="text-4xl font-semibold pb-1">{props.title}</h1>
             {
                 (props.repoData || props.statistic) &&
