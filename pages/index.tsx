@@ -107,9 +107,9 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                 <meta property="og:description" content={ogDescription} />
                 <meta name="theme-color" content="#0f1117" />
             </Head>
-            <div className="h-full w-full md:flex items-center">
-                <div className="md:flex md:pl-28 pl-4 md:pt-14">
-                    <div className="text-xl leading-loose text-gray-400 max-w-[50rem] space-y-6">
+            <div className="h-full w-full md:flex">
+                <div className="md:flex md:pl-28 pl-4 pt-4 md:pt-14">
+                    <div className="text-xl leading-loose text-gray-400 max-w-[55rem] space-y-6">
                         <h1 className="md:text-7xl text-3xl font-black text-white pb-4">Hello, I&apos;m Zaid.</h1>
                         <p>
                             I&apos;m a passionate full-stack developer who loves building applications used by millions around the world using{" "}
@@ -186,7 +186,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                     ))}
                 </div>
             </div>
-            <div className="pl-14 md:pl-36 pb-40 md:grid md:grid-cols-7">
+            <div className="px-8 md:px-36 pb-40 md:grid md:grid-cols-6 justify-items-center">
                 <div className="col-span-full py-16">
                     <h1 className="text-4xl md:text-5xl font-semibold text-white">Articles</h1>
                 </div>
@@ -195,7 +195,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                         <SmallCard key={article.title} {...article} />
                     ))}
                 </div>
-                <div className="md:col-start-5 md:col-end-7 pt-20 md:pt-0 text-white">
+                <div className="md:col-start-5 md:col-end-7 text-white">
                     {articles.filter(x => x.tags?.includes("islam")).sort((a, b) => b.publishedAt - a.publishedAt).map((article) => (
                         <SmallCard key={article.title} {...article} />
                     ))}

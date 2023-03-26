@@ -3,12 +3,12 @@ import XMailTable from "./Tables/XMailTable";
 
 const MDXComponents = {
     h1: (props: { children: any }) => (
-        <h1 className="text-5xl font-bold font-rubik pb-8 md:pb-4 text-center md:text-left" {...props}>
+        <h1 className="text-4xl font-bold font-rubik pb-8 md:pb-4 text-center md:text-left" {...props}>
             {props.children}
         </h1>
     ),
     h2: (props: { children: any }) => (
-        <h1 className="text-4xl font-bold font-rubik pb-8 md:pb-4 text-center md:text-left" {...props}>
+        <h1 className="text-3xl font-bold font-rubik pb-8 md:pb-4 text-center md:text-left" {...props}>
             {props.children}
         </h1>
     ),
@@ -20,14 +20,14 @@ const MDXComponents = {
         );
     },
     p: (props: { children: any }) => {
-        return <p className="pt-4 pb-8 indent-8 text-left w-full">{props.children}</p>;
+        return <p className="pt-4 pb-8 indent-4 text-left w-full">{props.children}</p>;
     },
     code: (props: { children: any }) => {
         return <code className="text-red-600">{props.children}</code>;
     },
     pre: (props: { children: any }) => {
         return <div className="overflow-x-scroll md:overflow-x-auto bg-slate-800">
-            <pre className="text-xl p-4 mb-4 whitespace-pre-wrap">{props.children}</pre>
+            <pre className="text-lg p-4 mb-4 whitespace-pre-wrap">{props.children}</pre>
         </div>
     },
     blockquote: (props: { children: any }) => {
@@ -37,7 +37,7 @@ const MDXComponents = {
         return <li className="list-desc pb-4">{props.children}</li>
     },
     ol: (props: { children: any }) => {
-        return <ol className="indent-8 pl-4 list-decimal pb-4">{props.children}</ol>
+        return <ol className="indent-8 px-4 list-decimal pb-4">{props.children}</ol>
     },
     ul: (props: { children: any }) => {
         return <ul className="list-desc pb-4">{props.children}</ul>
