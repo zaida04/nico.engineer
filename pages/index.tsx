@@ -19,7 +19,7 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         description: "Tools for creating bots with the guilded.gg bot API. Usable in either JavaScript or TypeScript projects",
         repoName: "guilded.js",
         ownerName: "guildedjs",
-        tags: ["library", "api", "typescript", "monorepo"],
+        tags: ["library", "api", "ws", "typescript"],
         url: "https://guilded.js.org/",
     },
     {
@@ -31,6 +31,12 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         url: "https://yoki.gg/",
     },
     {
+        title: "Tenant",
+        repoName: "tenant",
+        ownerName: "zaida04",
+        tags: ["dns", "cloudflare", "ci/cd"],
+    },
+    {
         title: "config-convert",
         repoName: "config-convert",
         tags: ["converter", "json", "cli"],
@@ -40,36 +46,31 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         title: "tomlenv",
         repoName: "tomlenv",
         tags: ["toml", "cli", "env", "cf-workers"],
-        ownerName: "zaida04"
+        ownerName: "zaida04",
     },
     {
         title: "rent-a-ni.co",
         repoName: "rent-a-ni.co",
         tags: ["api", "link-shortener", "fastify"],
-        ownerName: "zaida04"
+        ownerName: "zaida04",
     },
-    {
-        title: "anon-bot",
-        repoName: "anonymous-posting-bot",
-        tags: ["discord", "bot"],
-        ownerName: "zaida04"
-    }
 ];
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-    const animeCount = await getAnimeCount("nico03727").catch(() => 0) ?? 0;
-    const timeCoding = await getTimeCoding().catch(() => "") ?? "";
-    const articles = await getAllArticles().catch(() => []) ?? [];
+    const animeCount = (await getAnimeCount("nico03727").catch(() => 0)) ?? 0;
+    const timeCoding = (await getTimeCoding().catch(() => "")) ?? "";
+    const articles = (await getAllArticles().catch(() => [])) ?? [];
 
-    const stars = (await Promise.allSettled(FEATURED_PROJECTS
-        .filter(x => x.repoName)
-        .map(async project => {
-            const req = await githubFetch<IFetchRepo>(`/repos/${project.ownerName}/${project.repoName}`);
-            return req;
-        })
-    ))
-        .filter(x => x.status === "fulfilled")
-        .map(x => (x as PromiseFulfilledResult<IFetchRepo>).value);
+    const stars = (
+        await Promise.allSettled(
+            FEATURED_PROJECTS.filter((x) => x.repoName).map(async (project) => {
+                const req = await githubFetch<IFetchRepo>(`/repos/${project.ownerName}/${project.repoName}`);
+                return req;
+            })
+        )
+    )
+        .filter((x) => x.status === "fulfilled")
+        .map((x) => (x as PromiseFulfilledResult<IFetchRepo>).value);
 
     return {
         props: {
@@ -148,8 +149,8 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                             I&apos;m the founder of{" "}
                             <HoverableLink color="text-[#F5C400]" url="https://yoki.gg">
                                 Yoki
-                            </HoverableLink>.{" "}
-                            On the side, I am a Community Manager for{" "}
+                            </HoverableLink>
+                            . On the side, I am a Community Manager for{" "}
                             <HoverableLink color="text-[#ED2224]" url="https://discord.gg/acc">
                                 Adobe Creative Career
                             </HoverableLink>
@@ -182,7 +183,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
             <div className="flex pb-16">
                 <div className="px-8 md:mx-auto grid gap-12 lg:grid-cols-2">
                     {FEATURED_PROJECTS.map((project) => (
-                        <ProjectCard key={project.title} repoData={stars.find(x => x.name === project.repoName)} {...project} />
+                        <ProjectCard key={project.title} repoData={stars.find((x) => x.name === project.repoName)} {...project} />
                     ))}
                 </div>
             </div>
@@ -191,14 +192,20 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                     <h1 className="text-4xl md:text-5xl font-semibold text-white">Articles</h1>
                 </div>
                 <div className="md:col-span-3">
-                    {articles.filter(x => !x.tags?.includes("islam")).sort((a, b) => b.publishedAt - a.publishedAt).map((article) => (
-                        <SmallCard key={article.title} {...article} />
-                    ))}
+                    {articles
+                        .filter((x) => !x.tags?.includes("islam"))
+                        .sort((a, b) => b.publishedAt - a.publishedAt)
+                        .map((article) => (
+                            <SmallCard key={article.title} {...article} />
+                        ))}
                 </div>
                 <div className="md:col-start-5 md:col-end-7 text-white">
-                    {articles.filter(x => x.tags?.includes("islam")).sort((a, b) => b.publishedAt - a.publishedAt).map((article) => (
-                        <SmallCard key={article.title} {...article} />
-                    ))}
+                    {articles
+                        .filter((x) => x.tags?.includes("islam"))
+                        .sort((a, b) => b.publishedAt - a.publishedAt)
+                        .map((article) => (
+                            <SmallCard key={article.title} {...article} />
+                        ))}
                 </div>
                 {/* <div className="md:col-start-5 md:col-end-7 pt-20 md:pt-0 text-white">
                     <h1 className="text-6xl md:text-5xl font-semibold pb-4">Contact Me</h1>
