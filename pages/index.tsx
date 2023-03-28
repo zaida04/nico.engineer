@@ -19,7 +19,7 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         description: "Tools for creating bots with the guilded.gg bot API. Usable in either JavaScript or TypeScript projects",
         repoName: "guilded.js",
         ownerName: "guildedjs",
-        tags: ["library", "api", "ws", "typescript"],
+        tags: ["library", "api", "ws", "react"],
         url: "https://guilded.js.org/",
     },
     {
@@ -27,7 +27,7 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         description: "Previously on Discord, Yoki is the first moderation bot on Guilded. Focused on reliability and customizability.",
         statistic: "1300+ servers",
         repoLink: "https://github.com/yoki-labs",
-        tags: ["bot", "microservice", "automod", "ai"],
+        tags: ["bot", "microservice", "automod", "react"],
         url: "https://yoki.gg/",
     },
     {
@@ -36,7 +36,7 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         ownerName: "zaida04",
         description: "Lease out subdomains with ease by leveraging cloudflare & github actions 🚀. Powering is-a.engineer",
         url: "https://is-a.engineer",
-        tags: ["dns", "cloudflare", "ci/cd"],
+        tags: ["dns", "cloudflare", "ci/cd", "react"],
     },
     {
         title: "config-convert",
