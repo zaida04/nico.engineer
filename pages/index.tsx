@@ -34,6 +34,8 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         title: "Tenant",
         repoName: "tenant",
         ownerName: "zaida04",
+        description: "Lease out subdomains with ease by leveraging cloudflare & github actions 🚀. Powering is-a.engineer",
+        url: "https://is-a.engineer",
         tags: ["dns", "cloudflare", "ci/cd"],
     },
     {
