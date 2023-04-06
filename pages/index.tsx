@@ -56,14 +56,14 @@ const COMPETITIONS: AwardTableData[] = [
     },
     {
         college: "Buffalo State",
-        competition: "CS4HS 2016",
+        competition: "CS4HS 2017",
         placement: "3rd",
         category: "Game Dev",
         project: "Rocket Blaster",
     },
     {
         college: "Buffalo State",
-        competition: "CS4HS 2017",
+        competition: "CS4HS 2016",
         placement: "2rd",
         category: "Web Design",
         project: "GameShare",
