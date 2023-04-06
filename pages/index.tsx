@@ -1,5 +1,4 @@
 import type { GetStaticProps, NextPage } from "next";
-import Image from "next/image";
 import { getAnimeCount } from "../lib/anilist";
 import { getTimeCoding } from "../lib/wakatime";
 import Statistic from "../components/Statistic";
@@ -12,6 +11,7 @@ import Head from "next/head";
 import HoverableLink from "../components/HoverableLink";
 import { githubFetch, IFetchRepo } from "../lib/github";
 import Email from "../components/Icons/Email";
+import AwardTable, { AwardTableData } from "../components/Tables/AwardTable";
 
 const FEATURED_PROJECTS: ProjectCardProps[] = [
     {
@@ -39,22 +39,34 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         tags: ["dns", "cloudflare", "ci/cd", "react"],
     },
     {
-        title: "config-convert",
-        repoName: "config-convert",
-        tags: ["converter", "json", "cli"],
-        ownerName: "zaida04",
-    },
-    {
-        title: "tomlenv",
-        repoName: "tomlenv",
-        tags: ["toml", "cli", "env", "cf-workers"],
-        ownerName: "zaida04",
-    },
-    {
         title: "rent-a-ni.co",
         repoName: "rent-a-ni.co",
         tags: ["api", "link-shortener", "fastify"],
         ownerName: "zaida04",
+    },
+];
+
+const COMPETITIONS: AwardTableData[] = [
+    {
+        college: "Princeton",
+        competition: "HackPrinceton 2023",
+        placement: "1st",
+        category: "Education",
+        project: "EduLive",
+    },
+    {
+        college: "Buffalo State",
+        competition: "CS4HS 2016",
+        placement: "3rd",
+        category: "Game Dev",
+        project: "Rocket Blaster",
+    },
+    {
+        college: "Buffalo State",
+        competition: "CS4HS 2017",
+        placement: "2rd",
+        category: "Web Design",
+        project: "GameShare",
     },
 ];
 
@@ -179,7 +191,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                 </div>
                 {/* <Image src="/my_face.png" width="450" height="450" alt="My face" /> */}
             </div>
-            <div className="w-full flex py-20">
+            <div className="w-full flex py-16 md:py-20">
                 <h1 className="mx-auto text-4xl md:text-5xl font-semibold text-white">Featured Projects</h1>
             </div>
             <div className="flex pb-16">
@@ -189,6 +201,16 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                     ))}
                 </div>
             </div>
+            <div className="w-full flex py-16 md:py-20">
+                <h1 className="mx-auto text-4xl md:text-5xl font-semibold text-white">Competitions</h1>
+            </div>
+
+            <div className="ml-8 md:mx-20 pb-20 flex overflow-x-auto">
+                <div className="md:mx-auto w-full">
+                    <AwardTable rowNames={["placement", "college", "competition", "category", "project"]} rowValues={COMPETITIONS} />
+                </div>
+            </div>
+
             <div className="px-8 md:px-36 pb-40 md:grid md:grid-cols-6 justify-items-center">
                 <div className="col-span-full py-16">
                     <h1 className="text-4xl md:text-5xl font-semibold text-white">Articles</h1>
