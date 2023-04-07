@@ -217,6 +217,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                 </div>
                 <div className="md:col-span-3">
                     {articles
+                        .filter((x) => !x.tags?.includes("islam"))
                         .sort((a, b) => b.publishedAt - a.publishedAt)
                         .map((article) => (
                             <SmallCard key={article.title} {...article} />
