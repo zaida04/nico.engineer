@@ -222,14 +222,14 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                             <SmallCard key={article.title} {...article} />
                         ))}
                 </div>
-                {/*<div className="md:col-start-5 md:col-end-7 text-white">
+                <div className="md:col-start-5 md:col-end-7 text-white">
                     {articles
                         .filter((x) => x.tags?.includes("islam"))
                         .sort((a, b) => b.publishedAt - a.publishedAt)
                         .map((article) => (
                             <SmallCard key={article.title} {...article} />
                         ))}
-                </div> */}
+                </div>
                 {/* <div className="md:col-start-5 md:col-end-7 pt-20 md:pt-0 text-white">
                     <h1 className="text-6xl md:text-5xl font-semibold pb-4">Contact Me</h1>
                     <a href="mailto:contact@nico.engineer">
