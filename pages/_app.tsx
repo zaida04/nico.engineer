@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import "../styles/styles.css";
+import "../styles/atom-dark.css"
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Layout from "./layout";

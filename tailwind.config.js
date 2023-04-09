@@ -6,6 +6,9 @@ module.exports = {
             colors: {
                 dark: "#0f1117",
             },
+            fontFamily: {
+                cascadia: ['CascadiaCode', 'sans-serif'],
+            },
         },
     },
     plugins: [],

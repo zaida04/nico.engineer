@@ -1,5 +1,7 @@
-import Statistic from "./Statistic";
-import XMailTable from "./Tables/XMailTable";
+import Statistic from "../Statistic";
+import XMailTable from "../Tables/XMailTable";
+import CodeBlock from "./CodeBlock";
+import RegularBlock from "./RegularBlock";
 
 const MDXComponents = {
     h1: (props: { children: any }) => (
@@ -23,7 +25,7 @@ const MDXComponents = {
         return <p className="pt-4 pb-8 indent-4 text-left w-full">{props.children}</p>;
     },
     code: (props: { children: any }) => {
-        return <code className="text-red-600">{props.children}</code>;
+        return <code className="bg-slate-700 px-2 mr-1 rounded-md text-red-600">{props.children}</code>;
     },
     pre: (props: { children: any }) => {
         return <div className="overflow-x-scroll md:overflow-x-auto bg-slate-800">
@@ -45,6 +47,8 @@ const MDXComponents = {
     // eslint-disable-next-line jsx-a11y/alt-text
     img: (props: { src: any }) => <img {...props} className="pt-8" />,
     XMailTable,
+    CodeBlock,
+    RegularBlock
 };
 
 export default MDXComponents;
