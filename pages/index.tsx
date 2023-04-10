@@ -215,7 +215,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                     <h1 className="text-4xl md:text-5xl font-semibold text-white">Articles</h1>
                 </div>
                 <div className="md:col-start-1 md:col-end-5">
-                    <h1 className="text-2xl md:text-3xl text-white font-semibold mb-4 underline-offset-3 underline">General</h1>
+                    <h1 className="text-2xl md:text-3xl text-white font-semibold mb-4 underline-offset-4 underline decoration-slate-500">General</h1>
                     {articles
                         .filter((x) => !x.tags?.includes("islam"))
                         .sort((a, b) => b.publishedAt - a.publishedAt)
@@ -224,7 +224,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                         ))}
                 </div>
                 <div className="md:col-start-5 md:col-end-7 text-white">
-                    <h1 className="text-2xl md:text-3xl text-white font-semibold mb-4 underline-offset-3 underline">Islamic</h1>
+                    <h1 className="text-2xl md:text-3xl text-white font-semibold mb-4 underline-offset-4 underline decoration-slate-500">Islamic</h1>
                     {articles
                         .filter((x) => x.tags?.includes("islam"))
                         .sort((a, b) => b.publishedAt - a.publishedAt)
