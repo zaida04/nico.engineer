@@ -63,7 +63,7 @@ const BlogPage: NextPage<Props> = ({ metadata, source }) => {
                 <meta property="og:site_name" content="nico.engineer" />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={`https://nico.engineer/blog/${metadata.frontmatter.slug}`} />
-                <meta property="og:image" content="https://nico.engineer/my_face.png" />
+                {/* <meta property="og:image" content="https://nico.engineer/my_face.png" /> */}
                 <meta property="og:description" content={metadata.frontmatter.description} />
                 <meta name="theme-color" content="#0f1117" />
             </Head>
@@ -77,7 +77,12 @@ const BlogPage: NextPage<Props> = ({ metadata, source }) => {
                         <MDXRemote {...source} components={MDXComponents} />
                     </div>
                     <div className="mt-4 p-4 bg-slate-800 rounded-lg">
-                        <p>Thanks for reading this article! Check me out on <a className="text-blue-500 font-semibold hover:text-blue-800 transition-colors" href="https://github.com/zaida04">GitHub!</a></p>
+                        <p>
+                            Thanks for reading this article! Check me out on{" "}
+                            <a className="text-blue-500 font-semibold hover:text-blue-800 transition-colors" href="https://github.com/zaida04">
+                                GitHub!
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
