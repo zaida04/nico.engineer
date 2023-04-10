@@ -76,7 +76,7 @@ const BlogPage: NextPage<Props> = ({ metadata, source }) => {
                     <div>
                         <MDXRemote {...source} components={MDXComponents} />
                     </div>
-                    <div className="p-4 bg-slate-800 rounded-lg">
+                    <div className="mt-4 p-4 bg-slate-800 rounded-lg">
                         <p>Thanks for reading this article! Check me out on <a className="text-blue-500 font-semibold hover:text-blue-800 transition-colors" href="https://github.com/zaida04">GitHub!</a></p>
                     </div>
                 </div>

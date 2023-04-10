@@ -10,7 +10,7 @@ const MDXComponents = {
         </h1>
     ),
     h2: (props: { children: any }) => (
-        <h1 className="text-3xl md:text-4xl font-bold font-rubik pb-8 md:pb-4 text-center md:text-left" {...props}>
+        <h1 className="text-3xl md:text-4xl font-bold font-rubik py-4 md:py-2 text-center md:text-left" {...props}>
             {props.children}
         </h1>
     ),
@@ -22,7 +22,7 @@ const MDXComponents = {
         );
     },
     p: (props: { children: any }) => {
-        return <p className="pt-4 pb-8 indent-4 text-left w-full">{props.children}</p>;
+        return <p className="pt-4 pb-6 indent-4 text-left w-full">{props.children}</p>;
     },
     code: (props: { children: any }) => {
         return <code className="bg-slate-700 px-2 mr-1 rounded-md text-red-600">{props.children}</code>;
