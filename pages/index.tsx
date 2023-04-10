@@ -107,7 +107,6 @@ type Props = {
 const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
     const ogDescription =
         "I'm a passionate full-stack developer who loves building applications used by millions around the world using Node.js, JavaScript, TypeScript, and Python. I'm currently really interested in learning lower-level languages such as Rust and Elixir.";
-    console.log(articles);
 
     return (
         <>
@@ -211,11 +210,12 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                 </div>
             </div>
 
-            <div className="px-8 md:px-36 pb-40 md:grid md:grid-cols-6 justify-items-center">
+            <div className="px-8 md:px-36 pb-40 md:grid md:grid-cols-7 justify-items-center">
                 <div className="col-span-full py-16">
                     <h1 className="text-4xl md:text-5xl font-semibold text-white">Articles</h1>
                 </div>
-                <div className="md:col-span-3">
+                <div className="md:col-start-1 md:col-end-5">
+                    <h1 className="text-2xl md:text-3xl text-white font-semibold mb-4 underline-offset-3 underline">General</h1>
                     {articles
                         .filter((x) => !x.tags?.includes("islam"))
                         .sort((a, b) => b.publishedAt - a.publishedAt)
@@ -224,6 +224,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                         ))}
                 </div>
                 <div className="md:col-start-5 md:col-end-7 text-white">
+                    <h1 className="text-2xl md:text-3xl text-white font-semibold mb-4 underline-offset-3 underline">Islamic</h1>
                     {articles
                         .filter((x) => x.tags?.includes("islam"))
                         .sort((a, b) => b.publishedAt - a.publishedAt)

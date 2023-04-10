@@ -10,7 +10,7 @@ const MDXComponents = {
         </h1>
     ),
     h2: (props: { children: any }) => (
-        <h1 className="text-3xl font-bold font-rubik pb-8 md:pb-4 text-center md:text-left" {...props}>
+        <h1 className="text-3xl md:text-4xl font-bold font-rubik pb-8 md:pb-4 text-center md:text-left" {...props}>
             {props.children}
         </h1>
     ),
@@ -28,27 +28,29 @@ const MDXComponents = {
         return <code className="bg-slate-700 px-2 mr-1 rounded-md text-red-600">{props.children}</code>;
     },
     pre: (props: { children: any }) => {
-        return <div className="overflow-x-scroll md:overflow-x-auto bg-slate-800">
-            <pre className="text-lg p-4 mb-4 whitespace-pre-wrap">{props.children}</pre>
-        </div>
+        return (
+            <div className="overflow-x-scroll md:overflow-x-auto bg-slate-800">
+                <pre className="text-lg p-4 mb-4 whitespace-pre-wrap">{props.children}</pre>
+            </div>
+        );
     },
     blockquote: (props: { children: any }) => {
-        return <blockquote className="indent-0 bg-slate-800 px-4 pt-4 mb-4">{props.children}</blockquote>
+        return <blockquote className="indent-0 bg-slate-800 px-4 pt-4 mb-4">{props.children}</blockquote>;
     },
     li: (props: { children: any }) => {
-        return <li className="list-desc ml-3 pb-4">{props.children}</li>
+        return <li className="list-desc ml-3 py-2">{props.children}</li>;
     },
     ol: (props: { children: any }) => {
-        return <ol className="md:indent-8 px-4 list-decimal pb-4">{props.children}</ol>
+        return <ol className="md:indent-8 px-4 list-decimal">{props.children}</ol>;
     },
     ul: (props: { children: any }) => {
-        return <ul className="list-desc pb-4">{props.children}</ul>
+        return <ul className="list-desc">{props.children}</ul>;
     },
     // eslint-disable-next-line jsx-a11y/alt-text
     img: (props: { src: any }) => <img {...props} className="pt-8" />,
     XMailTable,
     CodeBlock,
-    RegularBlock
+    RegularBlock,
 };
 
 export default MDXComponents;
