@@ -38,10 +38,10 @@ const MDXComponents = {
         return <blockquote className="indent-0 bg-slate-800 px-4 pt-4 mb-4">{props.children}</blockquote>;
     },
     li: (props: { children: any }) => {
-        return <li className="list-desc ml-3 py-2">{props.children}</li>;
+        return <li className="list-desc py-2">{props.children}</li>;
     },
     ol: (props: { children: any }) => {
-        return <ol className="md:indent-8 px-4 list-decimal">{props.children}</ol>;
+        return <ol className="md:indent-8 ml-4 px-2 md:px-4 list-decimal">{props.children}</ol>;
     },
     ul: (props: { children: any }) => {
         return <ul className="list-desc">{props.children}</ul>;
