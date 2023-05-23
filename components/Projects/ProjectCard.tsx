@@ -15,6 +15,7 @@ export interface ProjectCardProps {
     statistic?: string;
     repoData?: IFetchRepo;
     url?: string;
+    langs: string[];
 }
 
 export default function ProjectCard(props: ProjectCardProps) {
@@ -23,13 +24,13 @@ export default function ProjectCard(props: ProjectCardProps) {
             <h1 className="text-3xl font-semibold pb-1">{props.title}</h1>
             {
                 (props.repoData || props.statistic) &&
-                <div className="inline-flex pb-1">
+                <div className="flex pb-1">
                     {props.repoData && <FontAwesomeIcon icon={faStar} className="w-6 pr-1" />}
                     <p>{props.repoData?.stargazers_count ?? props.statistic}</p>
                 </div>
             }
 
-            <p className="text-md">{props.description ?? props.repoData?.description}</p>
+            <p className="text-md my-2">{props.description ?? props.repoData?.description}</p>
 
             {props.tags && <div className="flex flex-wrap">
                 <Tags tags={props.tags} />

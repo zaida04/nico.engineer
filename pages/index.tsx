@@ -21,6 +21,7 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         ownerName: "guildedjs",
         tags: ["library", "api", "ws", "react"],
         url: "https://guilded.js.org/",
+        langs: ["typescript", "nodejs", "deno"]
     },
     {
         title: "Yoki",
@@ -29,6 +30,7 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         repoLink: "https://github.com/yoki-labs",
         tags: ["bot", "microservice", "automod", "react"],
         url: "https://yoki.gg/",
+        langs: ["typescript", "nodejs", "react", "postgres"]
     },
     {
         title: "Tenant",
@@ -37,12 +39,14 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         description: "Lease out subdomains with ease by leveraging cloudflare & github actions 🚀. Powering is-a.engineer.",
         url: "https://is-a.engineer",
         tags: ["dns", "cloudflare", "ci/cd", "react"],
+        langs: ["typescript", "nodejs", "react"]
     },
     {
         title: "rent-a-ni.co",
         repoName: "rent-a-ni.co",
         tags: ["api", "link-shortener", "fastify"],
         ownerName: "zaida04",
+        langs: ["typescript", "nodejs", "mongodb"]
     },
 ];
 
@@ -125,7 +129,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                 <div className="w-full md:w-2/3">
                     <div className="md:flex">
                         <div className="text-xl leading-loose text-gray-400 max-w-[55rem] space-y-6">
-                            <h1 className="md:text-6xl text-2xl font-black text-white pb-4">Hello, I&apos;m Zaid.</h1>
+                            <h1 className="md:text-6xl text-4xl font-black text-white md:pb-4">Hello, I&apos;m Zaid.</h1>
                             <p>
                                 I&apos;m a passionate full-stack developer who loves building applications used by millions around the world using{" "}
                                 {[
