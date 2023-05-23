@@ -9,8 +9,10 @@ export default function Layout(props: { children: any }) {
         <>
             <Navbar goBack={router.pathname.includes("blog")} />
             <main>{props.children}</main>
-            <div className="text-white flex pt-8 pl-10 pb-4">
-                <Footer />
+            <div className="text-white flex flex-col pt-8 items-center justify-center pb-4 w-full">
+                <div className="w-3/4">
+                    <Footer />
+                </div>
             </div>
         </>
     );

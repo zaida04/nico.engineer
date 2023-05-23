@@ -121,8 +121,8 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                 <meta property="og:description" content={ogDescription} />
                 <meta name="theme-color" content="#0f1117" />
             </Head>
-            <div className="flex flex-col items-center justify-center pt-4 md:pt-14">
-                <div className="w-2/3">
+            <div className="flex flex-col md:items-center md:justify-center px-4 md:px-0 pt-4 md:pt-14">
+                <div className="w-full md:w-2/3">
                     <div className="md:flex">
                         <div className="text-xl leading-loose text-gray-400 max-w-[55rem] space-y-6">
                             <h1 className="md:text-6xl text-2xl font-black text-white pb-4">Hello, I&apos;m Zaid.</h1>
@@ -199,7 +199,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                         </div>
                     </div>
 
-                    <div className="pb-20 flex flex-col overflow-x-auto w-full ">
+                    <div className="pb-20 flex flex-col overflow-x-auto w-full">
                         <SectionHeader>Competitions</SectionHeader>
                         <div className="md:mx-auto w-full">
                             <AwardTable rowNames={["placement", "college", "competition", "category", "project"]} rowValues={COMPETITIONS} />
