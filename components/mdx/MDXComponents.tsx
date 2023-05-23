@@ -5,7 +5,7 @@ import RegularBlock from "./RegularBlock";
 
 const MDXComponents = {
     h1: (props: { children: any }) => (
-        <h1 className="text-3xl font-bold font-rubik pb-8 md:pb-4 text-center md:text-left" {...props}>
+        <h1 className="text-3xl font-bold font-rubik py-4 text-center md:text-left" {...props}>
             {props.children}
         </h1>
     ),
