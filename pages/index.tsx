@@ -124,7 +124,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
             <div className="flex flex-col items-center justify-center pt-4 md:pt-14">
                 <div className="w-2/3">
                     <div className="md:flex">
-                        <div className="text-lg leading-loose text-gray-400 max-w-[55rem] space-y-6">
+                        <div className="text-xl leading-loose text-gray-400 max-w-[55rem] space-y-6">
                             <h1 className="md:text-6xl text-2xl font-black text-white pb-4">Hello, I&apos;m Zaid.</h1>
                             <p>
                                 I&apos;m a passionate full-stack developer who loves building applications used by millions around the world using{" "}
@@ -209,15 +209,6 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                     <div className="flex flex-col">
                         <SectionHeader>Articles</SectionHeader>
                         {articles
-                            .filter((x) => !x.tags?.includes("islam"))
-                            .sort((a, b) => b.publishedAt - a.publishedAt)
-                            .map((article) => (
-                                <SmallCard key={article.title} {...article} />
-                            ))}
-                    </div>
-                    <div className="md:col-start-5 md:col-end-7 text-white">
-                        {articles
-                            .filter((x) => x.tags?.includes("islam"))
                             .sort((a, b) => b.publishedAt - a.publishedAt)
                             .map((article) => (
                                 <SmallCard key={article.title} {...article} />

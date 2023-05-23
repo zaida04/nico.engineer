@@ -1,6 +1,6 @@
 export default function XMailTable() {
     return (
-        <div className="pb-6">
+        <div className="pb-6 flex flex-col">
             <table className="table-auto border-2 border-spacing-2">
                 <thead>
                     <tr>
