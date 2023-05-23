@@ -18,10 +18,9 @@ export interface ProjectCardProps {
 }
 
 export default function ProjectCard(props: ProjectCardProps) {
-
     return (
-        <div className={`flex flex-col justify-between rounded-xl border-[1px] border-slate-800 text-white w-[25em] px-8 pt-8 pb-2`}>
-            <h1 className="text-4xl font-semibold pb-1">{props.title}</h1>
+        <div className={`flex flex-col justify-between rounded-xl border-[1px] border-slate-800 text-white max-w-sm px-8 pt-8 pb-2`}>
+            <h1 className="text-3xl font-semibold pb-1">{props.title}</h1>
             {
                 (props.repoData || props.statistic) &&
                 <div className="inline-flex pb-1">
@@ -39,12 +38,12 @@ export default function ProjectCard(props: ProjectCardProps) {
             <div className="flex space-x-4 pt-2 pb-4">
                 {(props.repoLink || props.repoName) && (
                     <a href={props.repoLink ?? `https://github.com/${props.ownerName}/${props.repoName}`}>
-                        <Github fill="#FFFFFF" className="text-3xl hover:opacity-50 transition-opacity" />
+                        <Github fill="#FFFFFF" className="text-2xl hover:opacity-50 transition-opacity" />
                     </a>
                 )}
                 {props.url && (
                     <a href={props.url}>
-                        <Link fill="#FFFFFF" className="text-3xl pt-1 hover:opacity-50 transition-opacity" />
+                        <Link fill="#FFFFFF" className="text-2xl pt-1 hover:opacity-50 transition-opacity" />
                     </a>
                 )}
             </div>

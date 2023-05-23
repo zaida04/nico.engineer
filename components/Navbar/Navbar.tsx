@@ -6,7 +6,7 @@ export default function Navbar(props?: { goBack?: boolean }) {
     return (
         <nav className="px-2 py-2.5 bg-guilded-black sm:px-4 w-full">
             <div className="container mx-auto flex items-center justify-between">
-                <div className="whitespace-nowrap pl-2 md:pl-20 text-xl my-auto select-none">
+                <div className="whitespace-nowrap pl-2 md:pl-20 text-lg my-auto select-none">
                     {props?.goBack && <Link href="/">
                         <ul className="pt-4 items-center flex flex-col md:mt-0 md:flex-row md:space-x-4 md:pr-16">
                             <NavbarItem text="← Go Back" dest="https://github.com/zaida04/nico.engineer" />

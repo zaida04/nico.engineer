@@ -5,12 +5,12 @@ import RegularBlock from "./RegularBlock";
 
 const MDXComponents = {
     h1: (props: { children: any }) => (
-        <h1 className="text-5xl font-bold font-rubik pb-8 md:pb-4 text-center md:text-left" {...props}>
+        <h1 className="text-3xl font-bold font-rubik pb-8 md:pb-4 text-center md:text-left" {...props}>
             {props.children}
         </h1>
     ),
     h2: (props: { children: any }) => (
-        <h1 className="text-3xl md:text-4xl font-bold font-rubik py-4 md:py-2 text-center md:text-left" {...props}>
+        <h1 className="text-xl md:text-2xl font-bold font-rubik py-4 md:py-2 text-center md:text-left" {...props}>
             {props.children}
         </h1>
     ),
@@ -30,7 +30,7 @@ const MDXComponents = {
     pre: (props: { children: any }) => {
         return (
             <div className="overflow-x-scroll md:overflow-x-auto bg-slate-800">
-                <pre className="text-lg p-4 mb-4 whitespace-pre-wrap">{props.children}</pre>
+                <pre className="text-md p-4 mb-4 whitespace-pre-wrap">{props.children}</pre>
             </div>
         );
     },

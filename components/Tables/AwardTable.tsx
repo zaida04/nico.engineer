@@ -18,7 +18,7 @@ export default function AwardTable(props: { rowNames: (keyof AwardTableData)[]; 
                         ))}
                     </tr>
                 </thead>
-                <tbody className="text-xl text-gray-300">
+                <tbody className="text-md text-gray-300">
                     {props.rowValues.map((row) => (
                         <tr key={row.competition + Date.now()} className="bg-gray-900">
                             {Object.values(props.rowNames).map((value, index) => (
