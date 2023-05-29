@@ -30,7 +30,11 @@ export default function ProjectCard(props: ProjectCardProps) {
                 (props.repoData || props.statistic) &&
                 <div className="flex pb-1 text-amber-500">
                     {props.repoData && <FontAwesomeIcon icon={faStar} className="w-6 pr-1" />}
-                    <p>{props.repoData?.stargazers_count ?? props.statistic}</p>
+                    {props.repoData?.stargazers_count && <p>{props.repoData?.stargazers_count}</p>}
+                    {props.repoData?.stargazers_count && props.statistic ? <>
+                        <p className="px-2">•</p>
+                        <p>{props.statistic}</p>
+                    </> : <p>{props.statistic}</p>}
                 </div>
             }
 

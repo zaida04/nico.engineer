@@ -17,6 +17,7 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
     {
         title: "Guilded.js",
         description: "Tools for creating bots with the guilded.gg bot API. Usable in either JavaScript or TypeScript projects.",
+        statistic: "13,000+ downloads",
         repoName: "guilded.js",
         ownerName: "guildedjs",
         tags: ["library", "api", "ws", "react"],
@@ -26,7 +27,7 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
     {
         title: "Yoki",
         description: "Previously on Discord, Yoki is the first moderation bot on Guilded. Focused on reliability and customizability.",
-        statistic: "1800+ servers | 100k+ members",
+        statistic: "1800+ servers • 100k+ members",
         repoLink: "https://github.com/yoki-labs",
         tags: ["bot", "microservice", "automod", "react"],
         url: "https://yoki.gg/",
