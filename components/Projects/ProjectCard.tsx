@@ -20,11 +20,15 @@ export interface ProjectCardProps {
 
 export default function ProjectCard(props: ProjectCardProps) {
     return (
-        <div className={`flex flex-col justify-between rounded-xl border-[1px] border-slate-800 text-white max-w-[22rem] md:max-w-sm px-8 pt-8 pb-2`}>
-            <h1 className="text-3xl font-semibold pb-1">{props.title}</h1>
+        <div className={`flex flex-col justify-between rounded-xl border-[1px] border-stone-600 shadow-lg shadow-black text-white max-w-[22rem] md:max-w-sm px-8 pt-8 pb-2`}>
+            <h1 className="text-3xl font-semibold pb-1">
+                <a href={props.url} className="hover:opacity-60 transition-opacity">
+                    {props.title}
+                </a>
+            </h1>
             {
                 (props.repoData || props.statistic) &&
-                <div className="flex pb-1">
+                <div className="flex pb-1 text-amber-500">
                     {props.repoData && <FontAwesomeIcon icon={faStar} className="w-6 pr-1" />}
                     <p>{props.repoData?.stargazers_count ?? props.statistic}</p>
                 </div>

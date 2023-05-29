@@ -54,21 +54,28 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
 
 const COMPETITIONS: AwardTableData[] = [
     {
-        college: "Princeton",
+        organization: "Princeton",
         competition: "HackPrinceton 2023",
         placement: "1st",
         category: "Education",
         project: "EduLive",
     },
     {
-        college: "Buffalo State",
+        organization: "Wix",
+        competition: "Wix Create-A-SaaS 2023",
+        placement: "MVP & HM",
+        category: "SaaS",
+        project: "Evalx",
+    },
+    {
+        organization: "Buffalo State",
         competition: "CS4HS 2017",
         placement: "3rd",
         category: "Game Dev",
         project: "Rocket Blaster",
     },
     {
-        college: "Buffalo State",
+        organization: "Buffalo State",
         competition: "CS4HS 2016",
         placement: "2rd",
         category: "Web Design",
@@ -208,7 +215,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                     <div className="pb-20 flex flex-col overflow-x-auto w-full">
                         <SectionHeader>Competitions</SectionHeader>
                         <div className="md:mx-auto w-full">
-                            <AwardTable rowNames={["placement", "college", "competition", "category", "project"]} rowValues={COMPETITIONS} />
+                            <AwardTable rowNames={["placement", "competition", "project", "organization", "category"]} rowValues={COMPETITIONS} />
                         </div>
                     </div>
 

@@ -9,7 +9,7 @@ export default function SmallCard(props: { slug: string; publishedAt: number; re
                 <div className="flex text-gray-500">
                     <p>{DateTime.fromMillis(props.publishedAt).toRelative()}</p>
                     <p className="px-2">•</p>
-                    <p>{props.readingTime} </p>
+                    <p className="text-yellow-100">{props.readingTime} </p>
                 </div>
                 <p className="text-lg text-gray-400">{props.description}</p>
                 {props.tags && <Tags tags={props.tags} />}
