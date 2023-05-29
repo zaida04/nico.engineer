@@ -26,7 +26,7 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
     {
         title: "Yoki",
         description: "Previously on Discord, Yoki is the first moderation bot on Guilded. Focused on reliability and customizability.",
-        statistic: "1300+ servers",
+        statistic: "1800+ servers | 100k+ members",
         repoLink: "https://github.com/yoki-labs",
         tags: ["bot", "microservice", "automod", "react"],
         url: "https://yoki.gg/",
