@@ -33,6 +33,15 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         langs: ["typescript", "nodejs", "react", "postgres"]
     },
     {
+        title: "Evalx.sh",
+        description: "Code. Post. Done. You give us your code, we take care of running it. You focus on what matters, building great applications.",
+        statistic: "Just Launched!",
+        repoLink: "https://github.com/zaida04/evalx-sh",
+        tags: ["api", "react", "postgres", "docker"],
+        url: "https://evalx.sh",
+        langs: ["typescript", "nodejs", "react", "postgres"]
+    },
+    {
         title: "Tenant",
         repoName: "tenant",
         ownerName: "zaida04",
@@ -40,14 +49,7 @@ const FEATURED_PROJECTS: ProjectCardProps[] = [
         url: "https://is-a.engineer",
         tags: ["dns", "cloudflare", "ci/cd", "react"],
         langs: ["typescript", "nodejs", "react"]
-    },
-    {
-        title: "rent-a-ni.co",
-        repoName: "rent-a-ni.co",
-        tags: ["api", "link-shortener", "fastify"],
-        ownerName: "zaida04",
-        langs: ["typescript", "nodejs", "mongodb"]
-    },
+    }
 ];
 
 const COMPETITIONS: AwardTableData[] = [
