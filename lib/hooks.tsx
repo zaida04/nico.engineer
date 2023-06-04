@@ -8,6 +8,10 @@ export function useIsMobile() {
   }
 
   useEffect(() => {
+    handleWindowSizeChange();
+  }, [])
+
+  useEffect(() => {
     window.addEventListener('resize', handleWindowSizeChange);
     return () => {
       window.removeEventListener('resize', handleWindowSizeChange);

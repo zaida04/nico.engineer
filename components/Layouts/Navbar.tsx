@@ -1,18 +1,24 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export const hoverable = "hover:text-gray-300 transition-colors hover:underline";
 export const headings = {
     "/projects": "#projects",
     "/awards": "#competitions",
     "/blog": "#blog",
-    // "/explain-aws": "/aws",
+    "/explain-aws": "/aws",
 }
 
 export default function Navbar(props?: { goBack?: boolean }) {
     const router = useRouter();
     const isBlogPost = props?.goBack || router.route.includes("/blog");
+
+    const [animateOnMount, setAnimateOnMount] = useState(true);
+    useEffect(() => {
+        setAnimateOnMount(false);
+    }, []);
 
     return (
         <div className="flex flex-row justify-between text-white pt-10 pb-5 px-16">
@@ -24,21 +30,27 @@ export default function Navbar(props?: { goBack?: boolean }) {
 
             <div className="flex flex-row gap-16">
                 {!isBlogPost && Object.keys(headings).map((key, index) => {
+                    const heading = headings[key as keyof typeof headings];
+
                     return (
                         <motion.div
-                            initial={{ y: 50, opacity: 0 }}
+                            initial={animateOnMount ? { y: 50, opacity: 0 } : false}
                             animate={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
                             transition={{
                                 type: "keyframes",
-                                duration: 0.5,
+                                duration: 0.40,
                                 delay: (index * 0.25) + 0.5,
                                 stiffness: 260,
                                 damping: 20,
                             }}
                             key={key}>
-                            <a href={headings[key as keyof typeof headings]}>
-                                <p className={hoverable}>{key}</p>
-                            </a>
+                            {heading.startsWith("#") ?
+                                <a href={heading}>
+                                    <p className={hoverable}>{key}</p>
+                                </a> : <Link href={heading}>
+                                    <p className={hoverable}>{key}</p>
+                                </Link>}
                         </motion.div>
                     );
                 })}

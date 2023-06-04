@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <>
             <Head>
                 <link rel="shortcut icon" href="/favicon.ico" />
-                <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';" />
+                <meta httpEquiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline';" />
             </Head>
             <AnimatePresence mode="wait" initial={true}>
                 <Component {...pageProps} />
