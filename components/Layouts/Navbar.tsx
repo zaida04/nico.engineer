@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 
 export const hoverable = "hover:text-gray-300 transition-colors hover:underline";
 export const headings = {
-    "/projects": "#projects",
-    "/awards": "#competitions",
-    "/blog": "#blog",
+    "/root": "/",
+    "/projects": "/#projects",
+    "/awards": "/#competitions",
+    "/blog": "/#blog",
     "/explain-aws": "/aws",
 }
 
@@ -45,7 +46,7 @@ export default function Navbar(props?: { goBack?: boolean }) {
                                 damping: 20,
                             }}
                             key={key}>
-                            {heading.startsWith("#") ?
+                            {heading.startsWith("/#") ?
                                 <a href={heading}>
                                     <p className={hoverable}>{key}</p>
                                 </a> : <Link href={heading}>

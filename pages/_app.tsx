@@ -4,6 +4,7 @@ import "../styles/atom-dark.css"
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { AnimatePresence } from "framer-motion";
+import MainLayout from "../components/Layouts/MainLayout";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
@@ -13,7 +14,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <meta httpEquiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline';" />
             </Head>
             <AnimatePresence mode="wait" initial={true}>
-                <Component {...pageProps} />
+                <MainLayout>
+                    <Component {...pageProps} />
+                </MainLayout>
             </AnimatePresence>
         </>
     );

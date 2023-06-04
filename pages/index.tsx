@@ -14,6 +14,7 @@ import AwardTable from "../components/Landing/AwardTable";
 import { FEATURED_PROJECTS, COMPETITIONS } from "../lib/data";
 import MainLayout from "../components/Layouts/MainLayout";
 import ExternalLinks from "../components/Landing/ExternalLinks";
+import PageTransition from "../components/Layouts/PageTransition";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     const animeCount = (await getAnimeCount("nico03727").catch(() => 0)) ?? 0;
@@ -51,7 +52,7 @@ type Props = {
 
 const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
     return (
-        <MainLayout>
+        <PageTransition>
             <div className="flex flex-col md:items-center md:justify-center px-4 md:px-0 pt-4 md:pt-14">
                 <div className="w-full md:w-2/3">
                     <div className="md:flex">
@@ -121,7 +122,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                 </div> */}
                 </div>
             </div>
-        </MainLayout>
+        </PageTransition>
     );
 };
 

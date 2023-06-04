@@ -27,18 +27,7 @@ export default function MainLayout(props: { children: React.ReactNode }) {
     </Head>
     {isMobile ? <MobileNavbar /> : <Navbar goBack={router.pathname.includes("blog")} />}
 
-    <motion.div
-      initial={{ y: 150, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: 300, opacity: 0 }}
-      transition={{
-        type: "keyframes",
-        duration: 0.5,
-        stiffness: 260,
-        damping: 20,
-      }}>
-      <main>{props.children}</main>
-    </motion.div>
+    <main>{props.children}</main>
 
     <div className="text-white flex pt-8 justify-center pb-4 w-full">
       <div className="w-3/4">

@@ -1,9 +1,10 @@
 import MainLayout from "../../components/Layouts/MainLayout";
+import PageTransition from "../../components/Layouts/PageTransition";
 
 export default function AWSLanding() {
-  return <MainLayout>
-    <div>
+  return <PageTransition>
+    <div className="text-white">
       hi
     </div>
-  </MainLayout>
+  </PageTransition>
 }
