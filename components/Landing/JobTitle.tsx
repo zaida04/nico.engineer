@@ -1,4 +1,4 @@
-import Statistic from "./Statistic";
+import Statistic from "../Statistic";
 
 export default function JobTitle(props: { children: any; url: string }) {
     return (

@@ -1,6 +1,6 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { ArticleData, getAllSlugs, getArticleFromSlug } from "../../lib/articles";
-import MDXComponents from "../../components/mdx/MDXComponents";
+import MDXComponents from "../../components/Blog/mdx/MDXComponents";
 import Head from "next/head";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";

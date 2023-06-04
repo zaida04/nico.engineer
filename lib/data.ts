@@ -1,5 +1,5 @@
-import { ProjectCardProps } from "../components/Projects/ProjectCard";
-import { AwardTableData } from "../components/Tables/AwardTable";
+import { ProjectCardProps } from "../components/Landing/ProjectCard";
+import { AwardTableData } from "../components/Landing/AwardTable";
 
 export const FEATURED_PROJECTS: ProjectCardProps[] = [
   {

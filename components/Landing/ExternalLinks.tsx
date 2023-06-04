@@ -1,4 +1,4 @@
-import HoverableLink from "./HoverableLink"
+import HoverableLink from "../HoverableLink"
 
 const links = {
   "node": { color: "text-green-600", url: "https://nodejs.org/en/", text: "Node.js" },

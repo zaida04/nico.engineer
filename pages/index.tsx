@@ -4,16 +4,16 @@ import { getTimeCoding } from "../lib/wakatime";
 import Statistic from "../components/Statistic";
 import Github from "../components/Icons/Github";
 import Discord from "../components/Icons/Discord";
-import ProjectCard from "../components/Projects/ProjectCard";
-import SmallCard from "../components/Post/SmallCard";
+import ProjectCard from "../components/Landing/ProjectCard";
+import SmallCard from "../components/Landing/BlogPost";
 import { ArticleData, getAllArticles } from "../lib/articles";
 import HoverableLink from "../components/HoverableLink";
 import { githubFetch, IFetchRepo } from "../lib/github";
 import Email from "../components/Icons/Email";
-import AwardTable from "../components/Tables/AwardTable";
+import AwardTable from "../components/Landing/AwardTable";
 import { FEATURED_PROJECTS, COMPETITIONS } from "../lib/data";
 import MainLayout from "../components/Layouts/MainLayout";
-import ExternalLinks from "../components/ExternalLinks";
+import ExternalLinks from "../components/Landing/ExternalLinks";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     const animeCount = (await getAnimeCount("nico03727").catch(() => 0)) ?? 0;

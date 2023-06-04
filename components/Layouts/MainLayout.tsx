@@ -1,10 +1,10 @@
 import Head from "next/head";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 import { useRouter } from "next/router";
 import { useIsMobile } from "../../lib/hooks";
 import { motion } from "framer-motion";
-import MobileNavbar from "../Navbar/MobileNavbar";
+import MobileNavbar from "./MobileNavbar";
 
 const ogDescription =
   "I'm a passionate full-stack developer who loves building applications used by millions around the world using Node.js, JavaScript, TypeScript, and Python. I'm currently really interested in learning lower-level languages such as Rust and Elixir.";

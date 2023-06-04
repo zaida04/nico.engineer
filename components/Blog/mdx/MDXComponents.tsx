@@ -1,4 +1,4 @@
-import Statistic from "../Statistic";
+import Statistic from "../../Statistic";
 import XMailTable from "../Tables/XMailTable";
 import CodeBlock from "./CodeBlock";
 import RegularBlock from "./RegularBlock";
