@@ -3,7 +3,6 @@ import "../styles/styles.css";
 import "../styles/atom-dark.css"
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import Layout from "./layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
@@ -11,9 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <Head>
                 <link rel="shortcut icon" href="/favicon.ico" />
             </Head>
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
+            <Component {...pageProps} />
         </>
     );
 }
