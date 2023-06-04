@@ -73,13 +73,13 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                                 I&apos;ve watched <Statistic>{animeCount}</Statistic> animes and spent <Statistic>{timeCoding}</Statistic> coding this year.
                             </p>
                             <div className="flex space-x-4">
-                                <a href="https://github.com/zaida04" className="text-3xl hover:opacity-50 transition-opacity">
+                                <a href="https://github.com/zaida04" className="text-3xl hover:opacity-50 transition-opacity" aria-label="github">
                                     <Github fill="#FFFFFF" />
                                 </a>
-                                <a href="https://discord.com/users/500765481788112916/" className="text-3xl text-black hover:opacity-50 transition-opacity">
+                                <a href="https://discord.com/users/500765481788112916/" className="text-3xl text-black hover:opacity-50 transition-opacity" aria-label="discord">
                                     <Discord />
                                 </a>
-                                <a href="mailto:contact@nico.engineer" className="hover:opacity-50 transition-opacity">
+                                <a href="mailto:contact@nico.engineer" className="hover:opacity-50 transition-opacity" aria-label="email">
                                     <Email />
                                 </a>
                             </div>

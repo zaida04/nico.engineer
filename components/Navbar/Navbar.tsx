@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
 export const hoverable = "hover:text-gray-300 transition-colors hover:underline";
 export const headings = {
@@ -22,13 +23,23 @@ export default function Navbar(props?: { goBack?: boolean }) {
             </div>
 
             <div className="flex flex-row gap-16">
-                {!isBlogPost && Object.keys(headings).map((key) => {
+                {!isBlogPost && Object.keys(headings).map((key, index) => {
                     return (
-                        <div key={key}>
+                        <motion.div
+                            initial={{ y: 50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{
+                                type: "keyframes",
+                                duration: 0.5,
+                                delay: (index * 0.25) + 0.5,
+                                stiffness: 260,
+                                damping: 20,
+                            }}
+                            key={key}>
                             <a href={headings[key as keyof typeof headings]}>
                                 <p className={hoverable}>{key}</p>
                             </a>
-                        </div>
+                        </motion.div>
                     );
                 })}
             </div>

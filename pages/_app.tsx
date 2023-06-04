@@ -3,6 +3,7 @@ import "../styles/styles.css";
 import "../styles/atom-dark.css"
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { AnimatePresence } from "framer-motion";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
@@ -10,7 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             <Head>
                 <link rel="shortcut icon" href="/favicon.ico" />
             </Head>
-            <Component {...pageProps} />
+            <AnimatePresence mode="wait" initial={true}>
+                <Component {...pageProps} />
+            </AnimatePresence>
         </>
     );
 }

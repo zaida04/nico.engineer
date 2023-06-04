@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer";
 import { useRouter } from "next/router";
 import { useIsMobile } from "../../lib/hooks";
+import { motion } from "framer-motion";
 import MobileNavbar from "../Navbar/MobileNavbar";
 
 const ogDescription =
@@ -25,7 +26,20 @@ export default function MainLayout(props: { children: React.ReactNode }) {
       <meta name="theme-color" content="#0f1117" />
     </Head>
     {isMobile ? <MobileNavbar /> : <Navbar goBack={router.pathname.includes("blog")} />}
-    <main>{props.children}</main>
+
+    <motion.div
+      initial={{ y: 150, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: 300, opacity: 0 }}
+      transition={{
+        type: "keyframes",
+        duration: 0.5,
+        stiffness: 260,
+        damping: 20,
+      }}>
+      <main>{props.children}</main>
+    </motion.div>
+
     <div className="text-white flex pt-8 justify-center pb-4 w-full">
       <div className="w-3/4">
         <Footer />
