@@ -1,10 +1,43 @@
-import MainLayout from "../../components/Layouts/MainLayout";
+import ServicePreview from "../../components/Aws/ServicePreview";
 import PageTransition from "../../components/Layouts/PageTransition";
 
+import { chunk } from "moderndash";
+import { AWS_SERVICES } from "../../lib/aws";
+import { searchForSimilar } from "../../lib/search";
+import { useMemo, useState } from "react";
+const everyThree = chunk(AWS_SERVICES, 3);
+
 export default function AWSLanding() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchResults = useMemo(() => searchForSimilar(searchQuery, AWS_SERVICES), [searchQuery]);
+
   return <PageTransition>
-    <div className="text-white">
-      hi
+    <div className="text-white mb-2">
+      <h1 className="text-6xl font-bold mb-2">AWS Services: Explained</h1>
+      <p>Clear, concise explanations of popular AWS services. This was created because I noticed a lot of people at school had difficulty understanding why AWS has so many services and how similar ones are actually different from each other.</p>
+    </div>
+
+    <div className="mb-6">
+      <input type="search" onChange={(event) => setSearchQuery(event.target.value)} className="w-full p-4 pl-8 text-md rounded-lg bg-slate-800 text-gray-100" placeholder="Search for a specific service..." />
+      <a className="text-white mt-1 text-sm hover:underline" href="https://github.com/zaida04/nico.engineer/issues/new">Missing a service we should have? Let me know.</a>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-4 text-white">
+      <ServiceResults searchQuery={searchQuery} searchResults={searchResults} />
     </div>
   </PageTransition>
+}
+
+export function ServiceResults(props: { searchQuery: string, searchResults: typeof AWS_SERVICES[number][] }) {
+  if (props.searchQuery === "") return <>
+    {everyThree.map((three, i) =>
+      <div key={i} className="grid gap-4">
+        {three.map((service, i) => <ServicePreview key={i} name={service.name} tags={service.tags} description={service.description} />)}
+      </div>
+    )}
+  </>
+
+  if (props.searchResults.length === 0) return <div className="text-yellow-500 text-2xl">No results found.</div>
+
+  return <>{props.searchResults.map((service, i) => <ServicePreview key={i} name={service.name} tags={service.tags} description={service.description} />)}</>
 }

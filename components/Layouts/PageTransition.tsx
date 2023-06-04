@@ -11,6 +11,6 @@ export default function PageTransition(props: { children: React.ReactNode }) {
       stiffness: 260,
       damping: 20,
     }}>
-    <div>{props.children}</div>
+    <div className="min-h-screen">{props.children}</div>
   </motion.div>
 }
