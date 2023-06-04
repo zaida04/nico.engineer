@@ -96,14 +96,14 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                     </div>
 
                     <div className="pb-20 flex flex-col overflow-x-auto w-full" id="competitions">
-                        <SectionHeader>Competitions</SectionHeader>
+                        <SectionHeader>Awards</SectionHeader>
                         <div className="md:mx-auto w-full">
                             <AwardTable rowNames={["placement", "competition", "project", "organization", "category"]} rowValues={COMPETITIONS} />
                         </div>
                     </div>
 
                     <div className="flex flex-col" id="blog">
-                        <SectionHeader>Articles</SectionHeader>
+                        <SectionHeader>Blog</SectionHeader>
                         {articles
                             .sort((a, b) => b.publishedAt - a.publishedAt)
                             .map((article) => (

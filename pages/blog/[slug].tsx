@@ -8,6 +8,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypeHighlight from "rehype-highlight";
+import MainLayout from "../../components/Layouts/MainLayout";
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
     const article = await getArticleFromSlug(ctx.params?.slug as string);
@@ -55,17 +56,13 @@ type Props = {
 
 const BlogPage: NextPage<Props> = ({ metadata, source }) => {
     return (
-        <>
+        <MainLayout>
             <Head>
                 <title>{metadata.frontmatter.title} | Nico&apos;s Blog</title>
                 <meta name="description" content={metadata.frontmatter.description} />
                 <meta property="og:title" content={metadata.frontmatter.title} />
-                <meta property="og:site_name" content="nico.engineer" />
-                <meta property="og:type" content="website" />
                 <meta property="og:url" content={`https://nico.engineer/blog/${metadata.frontmatter.slug}`} />
-                {/* <meta property="og:image" content="https://nico.engineer/my_face.png" /> */}
                 <meta property="og:description" content={metadata.frontmatter.description} />
-                <meta name="theme-color" content="#0f1117" />
             </Head>
             <div className="pt-20">
                 <div className="pb-20">
@@ -86,7 +83,7 @@ const BlogPage: NextPage<Props> = ({ metadata, source }) => {
                     </div>
                 </div>
             </div>
-        </>
+        </MainLayout>
     );
 };
 
