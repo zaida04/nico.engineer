@@ -86,7 +86,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col my-8">
+                    <div className="flex flex-col my-8" id="projects">
                         <SectionHeader>Featured Projects</SectionHeader>
                         <div className="grid gap-12 lg:grid-cols-2">
                             {FEATURED_PROJECTS.map((project) => (
@@ -95,14 +95,14 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                         </div>
                     </div>
 
-                    <div className="pb-20 flex flex-col overflow-x-auto w-full">
+                    <div className="pb-20 flex flex-col overflow-x-auto w-full" id="competitions">
                         <SectionHeader>Competitions</SectionHeader>
                         <div className="md:mx-auto w-full">
                             <AwardTable rowNames={["placement", "competition", "project", "organization", "category"]} rowValues={COMPETITIONS} />
                         </div>
                     </div>
 
-                    <div className="flex flex-col">
+                    <div className="flex flex-col" id="blog">
                         <SectionHeader>Articles</SectionHeader>
                         {articles
                             .sort((a, b) => b.publishedAt - a.publishedAt)

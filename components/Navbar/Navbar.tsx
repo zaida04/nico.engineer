@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export const hoverable = "hover:text-gray-300 transition-colors hover:underline";
 export const headings = {
-    "/root": "/",
-    "/projects": "/projects",
-    "/competitions": "/competitions",
+    "/projects": "#projects",
+    "/blog": "#blog",
+    "/competitions": "#competitions",
     "/explain-aws": "/aws",
 }
 
