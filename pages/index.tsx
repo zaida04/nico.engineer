@@ -53,76 +53,63 @@ type Props = {
 const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
     return (
         <PageTransition>
-            <div className="flex flex-col md:items-center md:justify-center px-4 md:px-0 pt-4 md:pt-14">
-                <div className="w-full md:w-2/3">
-                    <div className="md:flex">
-                        <div className="text-lg leading-loose text-gray-400 space-y-6">
-                            <h1 className="md:text-6xl text-4xl font-black text-white md:pb-4">Hello, I&apos;m Zaid.</h1>
-                            <p>
-                                I&apos;m a passionate full-stack developer who loves building applications used by millions
-                                around the world using <ExternalLinks variant={'node'} />, <ExternalLinks variant={"javascript"} />, <ExternalLinks variant={"typescript"} />, and <ExternalLinks variant={"python"} />.
-                            </p>
-                            <p>
-                                I&apos;m currently really interested in learning lower-level languages such as <ExternalLinks variant="rust" /> and <ExternalLinks variant="elixir" />.
-                            </p>
-                            <p>
-                                I&apos;m the founder of <ExternalLinks variant="yoki" />.
-                                On the side, I am a Community Manager for <ExternalLinks variant="adobe" />.<br />
-                                Previously a Software Engineer at <ExternalLinks variant="fiveable" />
-                            </p>
-                            <p>
-                                I&apos;ve watched <Statistic>{animeCount}</Statistic> animes and spent <Statistic>{timeCoding}</Statistic> coding this year.
-                            </p>
-                            <div className="flex space-x-4">
-                                <a href="https://github.com/zaida04" className="text-3xl hover:opacity-50 transition-opacity" aria-label="github">
-                                    <Github fill="#FFFFFF" />
-                                </a>
-                                <a href="https://discord.com/users/500765481788112916/" className="text-3xl text-black hover:opacity-50 transition-opacity" aria-label="discord">
-                                    <Discord />
-                                </a>
-                                <a href="mailto:contact@nico.engineer" className="hover:opacity-50 transition-opacity" aria-label="email">
-                                    <Email />
-                                </a>
-                            </div>
-                        </div>
+            <div className="md:flex">
+                <div className="text-lg leading-loose text-gray-400 space-y-6">
+                    <h1 className="md:text-6xl text-4xl font-black text-white md:pb-4">Hello, I&apos;m Zaid.</h1>
+                    <p>
+                        I&apos;m a passionate full-stack developer who loves building applications used by millions
+                        around the world using <ExternalLinks variant={'node'} />, <ExternalLinks variant={"javascript"} />, <ExternalLinks variant={"typescript"} />, and <ExternalLinks variant={"python"} />.
+                    </p>
+                    <p>
+                        I&apos;m currently really interested in learning lower-level languages such as <ExternalLinks variant="rust" /> and <ExternalLinks variant="elixir" />.
+                    </p>
+                    <p>
+                        I&apos;m the founder of <ExternalLinks variant="yoki" />.
+                        On the side, I am a Community Manager for <ExternalLinks variant="adobe" />.<br />
+                        Previously a Software Engineer at <ExternalLinks variant="fiveable" />
+                    </p>
+                    <p>
+                        I&apos;ve watched <Statistic>{animeCount}</Statistic> animes and spent <Statistic>{timeCoding}</Statistic> coding this year.
+                    </p>
+                    <div className="flex space-x-4">
+                        <a href="https://github.com/zaida04" className="text-3xl hover:opacity-50 transition-opacity" aria-label="github">
+                            <Github fill="#FFFFFF" />
+                        </a>
+                        <a href="https://discord.com/users/500765481788112916/" className="text-3xl text-black hover:opacity-50 transition-opacity" aria-label="discord">
+                            <Discord />
+                        </a>
+                        <a href="mailto:contact@nico.engineer" className="hover:opacity-50 transition-opacity" aria-label="email">
+                            <Email />
+                        </a>
                     </div>
-
-                    <div className="flex flex-col my-8" id="projects">
-                        <SectionHeader>Featured Projects</SectionHeader>
-                        <div className="grid gap-12 lg:grid-cols-2">
-                            {FEATURED_PROJECTS.map((project) => (
-                                <ProjectCard key={project.title} repoData={stars.find((x) => x.name === project.repoName)} {...project} />
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="pb-20 flex flex-col overflow-x-auto w-full" id="competitions">
-                        <SectionHeader>Awards</SectionHeader>
-                        <div className="md:mx-auto w-full">
-                            <AwardTable rowNames={["placement", "competition", "project", "organization", "category"]} rowValues={COMPETITIONS} />
-                        </div>
-                    </div>
-
-                    <div className="flex flex-col" id="blog">
-                        <SectionHeader>Blog</SectionHeader>
-                        {articles
-                            .sort((a, b) => b.publishedAt - a.publishedAt)
-                            .map((article) => (
-                                <SmallCard key={article.title} {...article} />
-                            ))}
-                    </div>
-                    {/* <div className="md:col-start-5 md:col-end-7 pt-20 md:pt-0 text-white">
-                    <h1 className="text-6xl md:text-5xl font-semibold pb-4">Contact Me</h1>
-                    <a href="mailto:contact@nico.engineer">
-                        <p className="text-lg transition hover:scale-110 hover:text-yellow-200">Email: contact@nico.engineer</p>
-                    </a>
-                    <a href="https://discord.com/users/500765481788112916/">
-                        <p className="text-lg transition hover:scale-110 hover:text-[#5865F2]">Discord: n1co#3727</p>
-                    </a>
-                </div> */}
                 </div>
             </div>
-        </PageTransition>
+
+            <div className="flex flex-col my-8" id="projects">
+                <SectionHeader>Featured Projects</SectionHeader>
+                <div className="grid gap-12 lg:grid-cols-2">
+                    {FEATURED_PROJECTS.map((project) => (
+                        <ProjectCard key={project.title} repoData={stars.find((x) => x.name === project.repoName)} {...project} />
+                    ))}
+                </div>
+            </div>
+
+            <div className="pb-20 flex flex-col overflow-x-auto w-full" id="competitions">
+                <SectionHeader>Awards</SectionHeader>
+                <div className="md:mx-auto w-full">
+                    <AwardTable rowNames={["placement", "competition", "project", "organization", "category"]} rowValues={COMPETITIONS} />
+                </div>
+            </div>
+
+            <div className="flex flex-col" id="blog">
+                <SectionHeader>Blog</SectionHeader>
+                {articles
+                    .sort((a, b) => b.publishedAt - a.publishedAt)
+                    .map((article) => (
+                        <SmallCard key={article.title} {...article} />
+                    ))}
+            </div>
+        </PageTransition >
     );
 };
 
