@@ -41,7 +41,7 @@ export default function Navbar(props?: { goBack?: boolean }) {
                             transition={{
                                 type: "keyframes",
                                 duration: 0.40,
-                                delay: (index * 0.25) + 0.5,
+                                delay: (index * 0.22) + 0.35,
                                 stiffness: 260,
                                 damping: 20,
                             }}
