@@ -56,7 +56,7 @@ type Props = {
 
 const BlogPage: NextPage<Props> = ({ metadata, source }) => {
     return (
-        <MainLayout>
+        <>
             <Head>
                 <title>{metadata.frontmatter.title} | Nico&apos;s Blog</title>
                 <meta name="description" content={metadata.frontmatter.description} />
@@ -83,7 +83,7 @@ const BlogPage: NextPage<Props> = ({ metadata, source }) => {
                     </div>
                 </div>
             </div>
-        </MainLayout>
+        </>
     );
 };
 
