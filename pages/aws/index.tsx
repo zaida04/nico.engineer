@@ -14,7 +14,10 @@ export default function AWSLanding() {
   return <PageTransition>
     <div className="text-white mb-2">
       <h1 className="text-6xl font-bold mb-2">AWS Services: Explained</h1>
-      <p>Clear, concise explanations of popular AWS services. This was created because I noticed a lot of people at school had difficulty understanding why AWS has so many services and how similar ones are actually different from each other.</p>
+      <p>
+        Clear, concise explanations of popular AWS services. This was created because I noticed a lot of people at school had difficulty understanding why AWS has so many services and how similar ones are actually different from each other.
+        Because of the beginner-intermediate target audience, I&apos;ve tried to keep the explanations as simple as possible. If you have any suggestions or feedback, reach out to me through GitHub.
+      </p>
     </div>
 
     <div className="mb-6">
@@ -22,7 +25,7 @@ export default function AWSLanding() {
       <a className="text-white mt-1 text-sm hover:underline" href="https://github.com/zaida04/nico.engineer/issues/new">Missing a service we should have? Let me know.</a>
     </div>
 
-    <div className="grid md:grid-cols-2 gap-4 text-white">
+    <div className="md:columns-2 gap-4 text-white">
       <ServiceResults searchQuery={searchQuery} searchResults={searchResults} />
     </div>
   </PageTransition>
