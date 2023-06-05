@@ -33,7 +33,7 @@ export default function AWSLanding() {
         <a className="text-white mt-1 text-sm hover:underline" href="https://github.com/zaida04/nico.engineer/issues/new">Missing a service we should have? Let me know.</a>
       </div>
 
-      <div className="md:columns-2 gap-4 text-white">
+      <div className="md:grid grid-cols-2 gap-4 text-white">
         <ServiceResults searchQuery={searchQuery} searchResults={searchResults} />
       </div>
     </PageTransition>
