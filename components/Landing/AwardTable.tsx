@@ -34,7 +34,7 @@ export default function AwardTable(props: { rowNames: (keyof AwardTableData)[]; 
     );
 }
 
-function TableRow(props: { children: any; isFirst?: boolean }) {
+function TableRow(props: { children: React.ReactNode; isFirst?: boolean }) {
     if (!props.isFirst) return <td className="px-6 py-4">{props.children}</td>;
 
     return (

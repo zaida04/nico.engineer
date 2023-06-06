@@ -1,11 +1,13 @@
-import "../styles/globals.css";
-import "../styles/styles.css";
-import "../styles/atom-dark.css"
+import { AnimatePresence } from "framer-motion";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { AnimatePresence } from "framer-motion";
-import MainLayout from "../components/Layouts/MainLayout";
 import { useRouter } from "next/router";
+
+import "../styles/globals.css";
+import "../styles/styles.css";
+import "../styles/atom-dark.css";
+
+import MainLayout from "../components/Layouts/MainLayout";
 
 function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter();

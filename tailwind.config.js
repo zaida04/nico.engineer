@@ -7,7 +7,7 @@ module.exports = {
                 dark: "#0f1117",
             },
             fontFamily: {
-                cascadia: ['CascadiaCode', 'sans-serif'],
+                cascadia: ["CascadiaCode", "sans-serif"],
             },
         },
     },

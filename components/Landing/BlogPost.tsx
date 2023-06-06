@@ -1,4 +1,5 @@
 import { DateTime } from "luxon";
+
 import { Tags } from "../Tags";
 
 export default function SmallCard(props: { slug: string; publishedAt: number; readingTime: string; title: string; description: string; tags?: string[] }) {
@@ -14,6 +15,6 @@ export default function SmallCard(props: { slug: string; publishedAt: number; re
                 <p className="text-lg text-gray-400">{props.description}</p>
                 {props.tags && <Tags tags={props.tags} />}
             </div>
-        </a >
+        </a>
     );
 }

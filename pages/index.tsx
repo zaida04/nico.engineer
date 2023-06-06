@@ -1,21 +1,22 @@
 import type { GetStaticProps, NextPage } from "next";
-import { getAnimeCount } from "../lib/anilist";
-import { getTimeCoding } from "../lib/wakatime";
-import Statistic from "../components/Statistic";
-import Github from "../components/Icons/Github";
-import Discord from "../components/Icons/Discord";
-import ProjectCard from "../components/Landing/ProjectCard";
-import SmallCard from "../components/Landing/BlogPost";
-import { ArticleData, getAllArticles } from "../lib/articles";
-import { githubFetch, IFetchRepo } from "../lib/github";
-import Email from "../components/Icons/Email";
-import AwardTable from "../components/Landing/AwardTable";
-import { FEATURED_PROJECTS, COMPETITIONS } from "../lib/data";
-import ExternalLinks from "../components/Landing/ExternalLinks";
-import PageTransition from "../components/Layouts/PageTransition";
 import Head from "next/head";
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+import Discord from "../components/Icons/Discord";
+import Email from "../components/Icons/Email";
+import Github from "../components/Icons/Github";
+import AwardTable from "../components/Landing/AwardTable";
+import SmallCard from "../components/Landing/BlogPost";
+import ExternalLinks from "../components/Landing/ExternalLinks";
+import ProjectCard from "../components/Landing/ProjectCard";
+import PageTransition from "../components/Layouts/PageTransition";
+import Statistic from "../components/Statistic";
+import { getAnimeCount } from "../lib/anilist";
+import { ArticleData, getAllArticles } from "../lib/articles";
+import { COMPETITIONS, FEATURED_PROJECTS } from "../lib/data";
+import { githubFetch, IFetchRepo } from "../lib/github";
+import { getTimeCoding } from "../lib/wakatime";
+
+export const getStaticProps: GetStaticProps = async () => {
     const animeCount = (await getAnimeCount("nico03727").catch(() => 0)) ?? 0;
     const timeCoding = (await getTimeCoding().catch(() => "")) ?? "";
     const articles = (await getAllArticles().catch(() => [])) ?? [];
@@ -69,15 +70,18 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                     <div className="text-lg leading-loose text-gray-400 space-y-6">
                         <h1 className="md:text-6xl text-4xl font-black text-white md:pb-4">Hello, I&apos;m Zaid.</h1>
                         <p>
-                            I&apos;m a passionate full-stack developer who loves building applications used by millions
-                            around the world using <ExternalLinks variant={'node'} />, <ExternalLinks variant={"javascript"} />, <ExternalLinks variant={"typescript"} />, and <ExternalLinks variant={"python"} />.
+                            I&apos;m a passionate full-stack developer who loves building applications used by millions around the world using{" "}
+                            <ExternalLinks variant="node" />, <ExternalLinks variant="javascript" />, <ExternalLinks variant="typescript" />, and{" "}
+                            <ExternalLinks variant="python" />. I&apos;m familiar with databases like <ExternalLinks variant="pg" /> and{" "}
+                            <ExternalLinks variant="mongo" />.
                         </p>
                         <p>
-                            I&apos;m currently really interested in learning lower-level languages such as <ExternalLinks variant="rust" /> and <ExternalLinks variant="elixir" />.
+                            I&apos;m currently really interested in learning lower-level languages such as <ExternalLinks variant="rust" /> and{" "}
+                            <ExternalLinks variant="elixir" />.
                         </p>
                         <p>
-                            I&apos;m the founder of <ExternalLinks variant="yoki" />.
-                            On the side, I am a Community Manager for <ExternalLinks variant="adobe" />.<br />
+                            I&apos;m the founder of <ExternalLinks variant="yoki" />. On the side, I am a Community Manager for{" "}
+                            <ExternalLinks variant="adobe" />.<br />
                             Previously a Software Engineer at <ExternalLinks variant="fiveable" />
                         </p>
                         <p>
@@ -87,7 +91,11 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                             <a href="https://github.com/zaida04" className="text-3xl hover:opacity-50 transition-opacity" aria-label="github">
                                 <Github fill="#FFFFFF" />
                             </a>
-                            <a href="https://discord.com/users/500765481788112916/" className="text-3xl text-black hover:opacity-50 transition-opacity" aria-label="discord">
+                            <a
+                                href="https://discord.com/users/500765481788112916/"
+                                className="text-3xl text-black hover:opacity-50 transition-opacity"
+                                aria-label="discord"
+                            >
                                 <Discord />
                             </a>
                             <a href="mailto:contact@nico.engineer" className="hover:opacity-50 transition-opacity" aria-label="email">
@@ -121,7 +129,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                             <SmallCard key={article.title} {...article} />
                         ))}
                 </div>
-            </PageTransition >
+            </PageTransition>
         </>
     );
 };
@@ -131,4 +139,3 @@ export default Home;
 function SectionHeader(props: { children: React.ReactNode }) {
     return <h1 className="text-3xl mt-8 mb-6 md:mt-12 md:mb-10 md:text-4xl font-semibold text-white">{props.children}</h1>;
 }
-

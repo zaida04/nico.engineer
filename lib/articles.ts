@@ -1,8 +1,8 @@
 import { readFileSync } from "fs";
-import { readFile, readdir } from "fs/promises";
+import { readdir,readFile } from "fs/promises";
 import matter from "gray-matter";
-import readingTime from "reading-time";
 import { join } from "path";
+import readingTime from "reading-time";
 const articlesPath = join(process.cwd(), "blog");
 
 export type ArticleMetaData = { title: string; publishedAt: number; description: string; tags: string[] };
