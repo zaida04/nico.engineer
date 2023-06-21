@@ -24,7 +24,7 @@ export const FEATURED_PROJECTS: ProjectCardProps[] = [
     {
         title: "Evalx.sh",
         description: "Code. Post. Done. You give us your code, we take care of running it. You focus on what matters, building great applications.",
-        statistic: "Just Launched!",
+        statistic: "In Development!",
         repoLink: "https://github.com/zaida04/evalx-sh",
         tags: ["api", "react", "postgres", "docker"],
         url: "https://evalx.sh",
