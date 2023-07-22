@@ -9,7 +9,7 @@ export default function AwardTable(props: { rowNames: (keyof AwardTableData)[]; 
     return (
         <div className="relative md:overflow-x-auto sm:rounded-lg shadow-lg shadow-black">
             <table className="w-full text-sm text-left text-gray-400">
-                <thead className="text-md text-gray-300 uppercase bg-stone-800">
+                <thead className="text-md text-gray-300 uppercase bg-slate-800">
                     <tr>
                         {props.rowNames.map((name) => (
                             <th key={name} scope="col" className="px-6 py-3">
@@ -20,7 +20,7 @@ export default function AwardTable(props: { rowNames: (keyof AwardTableData)[]; 
                 </thead>
                 <tbody className="text-md text-gray-200">
                     {props.rowValues.map((row) => (
-                        <tr key={row.competition + Date.now()} className="bg-stone-700 border-b-2 border-stone-500">
+                        <tr key={row.competition + Date.now()} className="bg-slate-800 border-t-[1px] border-slate-500">
                             {Object.values(props.rowNames).map((value, index) => (
                                 <TableRow key={index} isFirst={index === 0}>
                                     {row[value as keyof AwardTableData]}

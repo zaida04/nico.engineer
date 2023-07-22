@@ -52,7 +52,7 @@ export default function ProjectCard(props: ProjectCardProps) {
                 </div>
             )}
 
-            <div className="flex space-x-4 pt-2 pb-4">
+            <div className="flex space-x-2 pt-2 pb-4">
                 {(props.repoLink || props.repoName) && (
                     <a href={props.repoLink ?? `https://github.com/${props.ownerName}/${props.repoName}`}>
                         <Github fill="#FFFFFF" className="text-2xl hover:opacity-50 transition-opacity" />
@@ -60,7 +60,7 @@ export default function ProjectCard(props: ProjectCardProps) {
                 )}
                 {props.url && (
                     <a href={props.url}>
-                        <Link fill="#FFFFFF" className="text-2xl pt-1 hover:opacity-50 transition-opacity" />
+                        <Link fill="#FFFFFF" className="text-2xl hover:opacity-50 transition-opacity" />
                     </a>
                 )}
             </div>

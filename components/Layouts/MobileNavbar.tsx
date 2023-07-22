@@ -2,7 +2,8 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
-import { headings, hoverable } from "./Navbar";
+import { headings } from "./Navbar";
+import { hoverable } from "../../utils/hoverable";
 
 export default function MobileNavbar() {
     const [isExpanded, setIsExpanded] = useState(false);
