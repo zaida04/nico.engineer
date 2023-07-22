@@ -1,5 +1,6 @@
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 import { headings } from "./Navbar";
@@ -14,15 +15,19 @@ export default function MobileNavbar() {
                 <FontAwesomeIcon className="w-8 text-white" icon={faBars} onClick={() => setIsExpanded(!isExpanded)} />
             </div>
 
-            {isExpanded && (
-                <div className="flex flex-col text-white text-center gap-4 my-8">
-                    {Object.keys(headings).map((key) => (
-                        <a key={key} className={`text-white ${hoverable}`} href={headings[key as keyof typeof headings]}>
-                            {key}
-                        </a>
-                    ))}
-                </div>
-            )}
+
+            <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: isExpanded ? [0, 125] : [125, 0], opacity: isExpanded ? [0, 1] : [1, 0] }} // Animate the height change
+                transition={{ duration: 0.35 }}
+                className="flex flex-col text-white text-center gap-4 my-8">
+                {Object.keys(headings).map((key) => (
+                    <a key={key} className={`text-white ${hoverable}`} href={headings[key as keyof typeof headings]}>
+                        {key}
+                    </a>
+                ))}
+            </motion.div>
+
         </>
     );
 }
