@@ -70,7 +70,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                     <div className="text-lg leading-loose text-gray-400 space-y-6">
                         <h1 className="md:text-6xl text-4xl font-black text-white md:pb-4">Hello, I&apos;m Zaid.</h1>
                         <p>
-                            I&apos;m a passionate full-stack developer who loves building applications used by millions around the world using{" "}
+                            I build full-stack stuff™ using{" "}
                             <ExternalLinks variant="node" />, <ExternalLinks variant="javascript" />, <ExternalLinks variant="typescript" />, and{" "}
                             <ExternalLinks variant="python" />. I&apos;m familiar with databases like <ExternalLinks variant="pg" /> and{" "}
                             <ExternalLinks variant="mongo" />.
