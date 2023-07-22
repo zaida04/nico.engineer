@@ -9,7 +9,7 @@ export const headings = {
     projects: "/#projects",
     awards: "/#competitions",
     blog: "/#blog",
-    "explain-aws": "/aws",
+//    "explain-aws": "/aws",
 };
 
 export default function Navbar(props?: { goBack?: boolean }) {
