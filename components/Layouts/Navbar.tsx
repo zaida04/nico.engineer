@@ -72,7 +72,7 @@ export default function Navbar(props?: { goBack?: boolean }) {
 
 
             <div className="w-1/6">
-                <a className={`text-white ${hoverable}`} href="https://github.com/zaida04/nico.engineer">
+                <a className={`text-white ${hoverable} px-4 py-2`} href="https://github.com/zaida04/nico.engineer">
                     View On GitHub
                 </a>
             </div>
