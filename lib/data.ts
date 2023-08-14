@@ -31,12 +31,12 @@ export const FEATURED_PROJECTS: ProjectCardProps[] = [
         langs: ["typescript", "nodejs", "react", "postgres"],
     },
     {
-        title: "Tenant",
-        repoName: "tenant",
+        title: "Razuberri",
+        repoName: "razuberri",
         ownerName: "zaida04",
-        description: "Lease out subdomains with ease by leveraging cloudflare & github actions 🚀. Powering is-a.engineer.",
-        url: "https://is-a.engineer",
-        tags: ["dns", "cloudflare", "ci/cd", "react"],
+        description: "Raspberry PI server cluster dashboard and monitor",
+        url: "https://razuberri.nico.engineer",
+        tags: ["raspberry pi", "typescript", "nodejs", "monitor"],
         langs: ["typescript", "nodejs", "react"],
     },
 ];
