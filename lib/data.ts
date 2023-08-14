@@ -36,7 +36,7 @@ export const FEATURED_PROJECTS: ProjectCardProps[] = [
         ownerName: "zaida04",
         description: "Raspberry PI server cluster dashboard and monitor",
         url: "https://razuberri.nico.engineer",
-        tags: ["raspberry pi", "typescript", "nodejs", "monitor"],
+        tags: ["raspberrypi", "typescript", "nodejs", "monitor"],
         langs: ["typescript", "nodejs", "react"],
     },
 ];
