@@ -21,6 +21,7 @@ const links = {
     yoki: { color: "text-[#F5C400]", url: "https://yoki.gg", text: "Yoki" },
     adobe: { color: "text-[#ED2224]", url: "https://discord.gg/acc", text: "Adobe Creative Career" },
     fiveable: { color: "text-[#14ac3d]", url: "https://fiveable.me", text: "Fiveable" },
+    github: { color: "text-pink-600", url: "https://github.com/zaida04", text:"GitHub" }
 };
 
 export default function ExternalLinks(props: { variant: keyof typeof links }) {

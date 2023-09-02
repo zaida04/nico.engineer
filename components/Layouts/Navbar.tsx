@@ -9,10 +9,9 @@ import { useEffect, useState } from "react";
 import { hoverable } from "../../utils/hoverable";
 
 export const headings = {
+    home: "/",
     resume: "/resume",
     projects: "/projects",
-    blog: "/blog",
-    awards: "/#competitions",
     //    "explain-aws": "/aws",
 };
 
@@ -61,15 +60,13 @@ export default function Navbar(props?: { goBack?: boolean }) {
                                     }}
                                     key={key}
                                 >
-                                    {heading.startsWith("/#") ? (
-                                        <a href={heading}>
+                                    <Link href={heading}>
+                                        {router.pathname !== heading ? (
                                             <p className={`${hoverable} px-4 py-2`}>{key}</p>
-                                        </a>
-                                    ) : (
-                                        <Link href={heading}>
-                                            <p className={`${hoverable} px-4 py-2`}>{key}</p>
-                                        </Link>
-                                    )}
+                                        ) : (
+                                            <p className="text-gray-300 bg-gray-700 rounded-lg hover:cursor-not-allowed px-4 py-2">{key}</p>
+                                        )}
+                                    </Link>
                                 </motion.div>
                             );
                         })}

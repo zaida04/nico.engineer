@@ -33,6 +33,7 @@ export const FEATURED_PROJECTS: ProjectCardProps[] = [
     {
         title: "Razuberri",
         repoName: "razuberri",
+        statistic: "In Development!",
         ownerName: "zaida04",
         description: "Raspberry PI server cluster dashboard and monitor",
         url: "https://razuberri.nico.engineer",

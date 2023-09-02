@@ -14,8 +14,8 @@ export default function MainLayout(props: { children: React.ReactNode }) {
             {isMobile ? <MobileNavbar /> : <Navbar goBack={router.pathname.includes("blog")} />}
 
             <main>
-                <div className="flex flex-col md:items-center md:justify-center px-4 md:px-0 pt-4 md:pt-14">
-                    <div className="w-full md:w-2/3">{props.children}</div>
+                <div className="flex flex-col md:items-center md:justify-center px-4 md:px-0">
+                    <div className="w-full md:w-3/4">{props.children}</div>
                 </div>
             </main>
 

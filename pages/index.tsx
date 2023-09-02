@@ -7,7 +7,7 @@ import Github from "../components/Icons/Github";
 import AwardTable from "../components/Landing/AwardTable";
 import SmallCard from "../components/Landing/BlogPost";
 import ExternalLinks from "../components/Landing/ExternalLinks";
-import ProjectCard from "../components/Landing/ProjectCard";
+import { SectionHeader } from "../components/Landing/Sections";
 import PageTransition from "../components/Layouts/PageTransition";
 import Statistic from "../components/Statistic";
 import { getAnimeCount } from "../lib/anilist";
@@ -46,14 +46,13 @@ export const getStaticProps: GetStaticProps = async () => {
 type Props = {
     animeCount: number;
     timeCoding: string;
-    stars: IFetchRepo[];
     articles: ArticleData[];
 };
 
 const ogDescription =
     "I'm a passionate full-stack developer who loves building applications used by millions around the world using Node.js, JavaScript, TypeScript, and Python.";
 
-const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
+const Home: NextPage<Props> = ({ animeCount, timeCoding, articles }) => {
     return (
         <>
             <Head>
@@ -66,7 +65,7 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                 <meta property="og:description" content={ogDescription} />
             </Head>
             <PageTransition>
-                <div className="md:flex">
+                <div className="md:flex pt-4 md:pt-14">
                     <div className="text-lg leading-loose text-gray-400 space-y-6">
                         <h1 className="md:text-6xl text-4xl font-black text-white md:pb-4">Hello, I&apos;m Zaid.</h1>
                         <p>
@@ -105,14 +104,6 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
                     </div>
                 </div>
 
-                <div className="flex flex-col my-8" id="projects">
-                    <SectionHeader>Featured Projects</SectionHeader>
-                    <div className="grid gap-12 lg:grid-cols-2">
-                        {FEATURED_PROJECTS.map((project) => (
-                            <ProjectCard key={project.title} repoData={stars.find((x) => x.name === project.repoName)} {...project} />
-                        ))}
-                    </div>
-                </div>
 
                 <div className="pb-20 flex flex-col overflow-x-auto w-full" id="competitions">
                     <SectionHeader>Awards</SectionHeader>
@@ -136,6 +127,3 @@ const Home: NextPage<Props> = ({ animeCount, timeCoding, articles, stars }) => {
 
 export default Home;
 
-function SectionHeader(props: { children: React.ReactNode }) {
-    return <h1 className="text-3xl mt-8 mb-6 md:mt-12 md:mb-10 md:text-4xl font-semibold text-white">{props.children}</h1>;
-}
