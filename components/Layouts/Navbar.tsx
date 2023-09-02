@@ -1,4 +1,7 @@
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -6,10 +9,10 @@ import { useEffect, useState } from "react";
 import { hoverable } from "../../utils/hoverable";
 
 export const headings = {
-    home: "/",
-    projects: "/#projects",
+    resume: "/resume",
+    projects: "/projects",
+    blog: "/blog",
     awards: "/#competitions",
-    blog: "/#blog",
     //    "explain-aws": "/aws",
 };
 
@@ -23,18 +26,23 @@ export default function Navbar(props?: { goBack?: boolean }) {
     }, []);
 
     return (
-        <div className="flex flex-row justify-between text-white pt-10 pb-5 px-16">
-            <div className="w-1/6">
-                {isBlogPost && (
+        <div className="flex flex-row shrink align-middle items-center justify-between text-white pt-10 pb-5 px-16">
+            <div>
+                {isBlogPost ? (
                     <Link href="/">
                         <p>← Go Back</p>
                     </Link>
+                ) : (
+                    <div className="shrink">
+                        <Link href="/">
+                            <Image src="/my_face.png" alt="my face" width={70} height={20} />
+                        </Link>
+                    </div>
                 )}
             </div>
 
-
-            {!isBlogPost &&
-                <div className="w-4/6 flex flex-col">
+            {!isBlogPost && (
+                <div className="flex flex-col">
                     <div className="flex flex-row gap-16">
                         {Object.keys(headings).map((key, index) => {
                             const heading = headings[key as keyof typeof headings];
@@ -68,14 +76,11 @@ export default function Navbar(props?: { goBack?: boolean }) {
                     </div>
                     {/* <div className="mt-2 w-[10rem] h-[2px] bg-white"></div> */}
                 </div>
-            }
+            )}
 
-
-            <div className="w-1/6">
-                <a className={`text-white ${hoverable} px-4 py-2`} href="https://github.com/zaida04/nico.engineer">
-                    View On GitHub
-                </a>
-            </div>
+            <a href="https://github.com/zaida04/nico.engineer">
+                <FontAwesomeIcon className="text-white w-[2rem] h-[2rem] hover:text-gray-400 transition-colors" icon={faGithub} />
+            </a>
         </div>
     );
 }
