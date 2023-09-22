@@ -2,6 +2,7 @@
 const withMDX = require("@next/mdx")();
 
 const nextConfig = withMDX({
+    output: "export",
     reactStrictMode: true,
 });
 
