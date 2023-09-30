@@ -10,7 +10,7 @@ const MDXComponents = {
         </h1>
     ),
     h2: (props: { children: React.ReactNode }) => (
-        <h1 className="text-xl md:text-2xl font-bold font-rubik py-4 md:py-2 text-center md:text-left" {...props}>
+        <h1 className="text-xl md:text-2xl font-bold font-rubik py-4 mt-10 mb-4 md:py-2 text-center md:text-left" {...props}>
             {props.children}
         </h1>
     ),

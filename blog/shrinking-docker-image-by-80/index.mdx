@@ -144,6 +144,8 @@ CMD ["node", "server.js"]
 
 Next.JS offers a [standalone](https://nextjs.org/docs/pages/api-reference/next-config-js/output) mode. If you're using features like middleware, getStaticProps, or getServerSideProps which need a server, this mode is great. It packages your app into a single folder. Plus, you can remove the large node_modules folder and only keep the dependencies that the Next.JS server needs.
 
+next.config.js
+
 ```js
 const nextConfig = {
     reactStrictMode: true,
@@ -155,6 +157,8 @@ const nextConfig = {
 
 module.exports = nextConfig;
 ```
+
+Dockerfile
 
 ```
 # Stage 1: Install dependencies and build
