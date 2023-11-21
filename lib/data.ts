@@ -25,20 +25,11 @@ export const FEATURED_PROJECTS: ProjectCardProps[] = [
         title: "Evalx.sh",
         description: "Code. Post. Done. You give us your code, we take care of running it. You focus on what matters, building great applications.",
         statistic: "In Development!",
-        repoLink: "https://github.com/zaida04/evalx-sh",
+        repoLink: "https://github.com/zaida04/evalx.sh",
         tags: ["api", "react", "postgres", "docker"],
         url: "https://evalx.sh",
         langs: ["typescript", "nodejs", "react", "postgres"],
-    },
-    {
-        title: "Razuberri",
-        repoName: "razuberri",
-        ownerName: "zaida04",
-        description: "Raspberry PI server cluster dashboard and monitor",
-        url: "https://razuberri.nico.engineer",
-        tags: ["raspberrypi", "typescript", "nodejs", "monitor"],
-        langs: ["typescript", "nodejs", "react"],
-    },
+    }
 ];
 
 export const COMPETITIONS: AwardTableData[] = [
