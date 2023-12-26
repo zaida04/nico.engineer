@@ -22,6 +22,15 @@ export const FEATURED_PROJECTS: ProjectCardProps[] = [
         langs: ["typescript", "nodejs", "react", "postgres"],
     },
     {
+        title: "Loggregator",
+        description: "Store, view, & search your logs. That's it. Nothing complicated, only what you need.",
+        statistic: "Newly released!",
+        repoLink: "https://github.com/zaida04/loggregator",
+        tags: ["http", "logs", "svelte"],
+        url: "https://loggregator.co",
+        langs: ["svelte", "typescript"]
+    },
+    {
         title: "Evalx.sh",
         description: "Code. Post. Done. You give us your code, we take care of running it. You focus on what matters, building great applications.",
         statistic: "In Development!",
